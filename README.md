@@ -142,15 +142,4 @@ component_demo <- c4_component_diagram(
     c4_rel("service", "payment", "Processes payments", "REST API")
   )
 )
-
-list(
-  context = context_demo,
-  container = container_demo,
-  component = component_demo
-)
-#> $context
-#> 
-#> $container
-#> 
-#> $component
 ```
