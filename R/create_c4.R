@@ -64,7 +64,7 @@ c4_context <- function(title = "System Context",
 #' @param theme Character string for color theme
 #' @return A DiagrammeR graph object
 #' @export
-c4_container <- function(title = "Container Diagram",
+c4_container_diagram <- function(title = "Container Diagram",
                          person = list(),
                          container = list(),
                          external_system = list(),
@@ -100,7 +100,7 @@ c4_container <- function(title = "Container Diagram",
 #' @param theme Character string for color theme
 #' @return A DiagrammeR graph object
 #' @export
-c4_component <- function(title = "Component Diagram",
+c4_component_diagram <- function(title = "Component Diagram",
                          component = list(),
                          external_system = list(),
                          relationships = list(),

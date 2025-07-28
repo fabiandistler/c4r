@@ -1,12 +1,17 @@
 Package: c4r
-Title: What the Package Does (One Line, Title Case)
+Title: Create C4 Architecture Diagrams
 Version: 0.0.0.9000
 Authors@R: 
-    person("First", "Last", , "first.last@example.com", role = c("aut", "cre"))
-Description: What the package does (one paragraph).
+    person("Fabian", "Distler", , "fabian@example.com", role = c("aut", "cre"))
+Description: Provides functions to create C4 architecture diagrams
+    (Context, Container, Component, and Code diagrams) using a simple R
+    interface. The package generates diagrams in DOT notation that can be
+    rendered using DiagrammeR or other Graphviz-compatible tools.
 License: MIT + file LICENSE
 URL: https://github.com/fabiandistler/c4r
 BugReports: https://github.com/fabiandistler/c4r/issues
+Depends: 
+    R (>= 4.1.0)
 Imports: 
     cli,
     DiagrammeR,

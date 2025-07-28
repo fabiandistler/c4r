@@ -4,9 +4,9 @@
 \name{c4r-package}
 \alias{c4r}
 \alias{c4r-package}
-\title{c4r: What the Package Does (One Line, Title Case)}
+\title{c4r: Create C4 Architecture Diagrams}
 \description{
-What the package does (one paragraph).
+Provides functions to create C4 architecture diagrams (Context, Container, Component, and Code diagrams) using a simple R interface. The package generates diagrams in DOT notation that can be rendered using DiagrammeR or other Graphviz-compatible tools.
 }
 \seealso{
 Useful links:
@@ -17,7 +17,7 @@ Useful links:
 
 }
 \author{
-\strong{Maintainer}: First Last \email{first.last@example.com}
+\strong{Maintainer}: Fabian Distler \email{fabian@example.com}
 
 }
 \keyword{internal}

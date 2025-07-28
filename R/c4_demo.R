@@ -47,7 +47,7 @@ c4_demo <- function() {
   )
 
   # Container Example
-  container_demo <- c4_container(
+  container_demo <- c4_container_diagram(
     title = "E-Commerce System - Container Diagram",
     person = list(
       c4_person("customer", "Customer", "Buys products online")
@@ -86,7 +86,7 @@ c4_demo <- function() {
   )
 
   # Component Example
-  component_demo <- c4_component(
+  component_demo <- c4_component_diagram(
     title = "API Gateway - Component Diagram",
     component = list(
       c4_component(
