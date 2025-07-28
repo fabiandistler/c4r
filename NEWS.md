@@ -1,4 +1,4 @@
-# c4r (development version)
+# c4r 0.1.0
 
 ## New features
 
@@ -12,4 +12,3 @@
 
 * Added comprehensive input validation and error handling
 
-* Initial CRAN submission.

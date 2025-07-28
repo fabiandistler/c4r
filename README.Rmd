@@ -30,12 +30,12 @@ The goal of c4r is to ...
 You can install the development version of c4r like so:
 
 ``` r
-# FILL THIS IN! HOW CAN PEOPLE INSTALL YOUR DEV PACKAGE?
+pak::pak("fabiandistler/c4r")
 ```
 
 ## Documentation
 
-Full documentation website on: https://fabiandistler.github.io/c4r
+Full documentation website on: https://fabiandistler.github.io/c4r/
 
 ## Examples
 
