@@ -1,17 +1,21 @@
+---
+output: github_document
+---
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
+
+
 
 # c4r
 
 <!-- badges: start -->
-
-[![Lifecycle:
-experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
-[![CRAN
-status](https://www.r-pkg.org/badges/version/c4r)](https://CRAN.R-project.org/package=c4r)
+[![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
+[![CRAN status](https://www.r-pkg.org/badges/version/c4r)](https://CRAN.R-project.org/package=c4r)
+[![R-CMD-check](https://github.com/fabiandistler/c4r/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/fabiandistler/c4r/actions/workflows/R-CMD-check.yaml)
+[![Codecov test coverage](https://codecov.io/gh/fabiandistler/c4r/graph/badge.svg)](https://app.codecov.io/gh/fabiandistler/c4r)
 <!-- badges: end -->
 
-The goal of c4r is to …
+The goal of c4r is to ...
 
 ## Installation
 
@@ -21,17 +25,22 @@ You can install the development version of c4r like so:
 # FILL THIS IN! HOW CAN PEOPLE INSTALL YOUR DEV PACKAGE?
 ```
 
+## Documentation
+
+Full documentation website on: https://fabiandistler.github.io/c4r
+
 ## Example
 
 This is a basic example which shows you how to solve a common problem:
+
 
 ``` r
 library(c4r)
 ## basic example code
 ```
 
-What is special about using `README.Rmd` instead of just `README.md`?
-You can include R chunks like so:
+What is special about using `README.Rmd` instead of just `README.md`? You can include R chunks like so:
+
 
 ``` r
 summary(cars)
@@ -44,12 +53,13 @@ summary(cars)
 #>  Max.   :25.0   Max.   :120.00
 ```
 
-You’ll still need to render `README.Rmd` regularly, to keep `README.md`
-up-to-date. `devtools::build_readme()` is handy for this.
+You'll still need to render `README.Rmd` regularly, to keep `README.md` up-to-date. `devtools::build_readme()` is handy for this.
 
 You can also embed plots, for example:
 
-<img src="man/figures/README-pressure-1.png" width="100%" />
+<div class="figure">
+<img src="man/figures/README-pressure-1.png" alt="plot of chunk pressure" width="100%" />
+<p class="caption">plot of chunk pressure</p>
+</div>
 
-In that case, don’t forget to commit and push the resulting figure
-files, so they display on GitHub and CRAN.
+In that case, don't forget to commit and push the resulting figure files, so they display on GitHub and CRAN.
