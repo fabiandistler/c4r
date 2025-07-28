@@ -36,11 +36,11 @@ test_that("get_c4_theme returns valid themes", {
   default_theme <- get_c4_theme("default")
   expect_type(default_theme, "list")
   expect_true(all(c("bg", "person", "system", "edge") %in% names(default_theme)))
-  
+
   dark_theme <- get_c4_theme("dark")
   expect_type(dark_theme, "list")
   expect_true(all(c("bg", "person", "system", "edge") %in% names(dark_theme)))
-  
+
   # Invalid theme should return default
   invalid_theme <- get_c4_theme("invalid")
   expect_equal(invalid_theme, default_theme)
