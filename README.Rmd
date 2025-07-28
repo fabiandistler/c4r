@@ -40,6 +40,10 @@ Full documentation website on: https://fabiandistler.github.io/c4r
 
 Full documentation website on: https://fabiandistler.github.io/c4r
 
+## Documentation
+
+Full documentation website on: https://fabiandistler.github.io/c4r
+
 ## Example
 
 This is a basic example which shows you how to solve a common problem:
