@@ -12,4 +12,3 @@
 
 * Added comprehensive input validation and error handling
 
-* Initial CRAN submission.
