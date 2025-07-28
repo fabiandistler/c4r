@@ -60,25 +60,27 @@ Let's start with a simple e-commerce system:
 # Create the system context diagram
 context_diagram <- c4_context(
   title = "E-Commerce System - System Context",
-  
+
   # Define the people who interact with our system
   person = list(
     c4_person("customer", "Customer", "A person who buys products online"),
     c4_person("admin", "Administrator", "Manages products and orders")
   ),
-  
+
   # Define our main system
   system = list(
-    c4_system("ecommerce", "E-Commerce System", 
-              "Allows customers to buy products and admins to manage inventory")
+    c4_system(
+      "ecommerce", "E-Commerce System",
+      "Allows customers to buy products and admins to manage inventory"
+    )
   ),
-  
+
   # Define external systems we depend on
   external_system = list(
     c4_external_system("payment", "Payment Gateway", "Processes credit card payments"),
     c4_external_system("email", "Email Service", "Sends transactional emails")
   ),
-  
+
   # Define the relationships between elements
   relationships = list(
     c4_rel("customer", "ecommerce", "Browses products and places orders", "HTTPS"),
@@ -109,42 +111,50 @@ A Container diagram zooms into your system to show the major technical building 
 ```{r container-example}
 container_diagram <- c4_container_diagram(
   title = "E-Commerce System - Container View",
-  
+
   # Users of the system
   person = list(
     c4_person("customer", "Customer", "Shops for products online"),
     c4_person("admin", "Administrator", "Manages the e-commerce platform")
   ),
-  
+
   # The containers that make up our system
   container = list(
-    c4_container("web_app", "Web Application", 
-                 "Provides e-commerce functionality", "React SPA"),
-    c4_container("api", "API Gateway", 
-                 "Handles all business logic and API requests", "Node.js/Express"),
-    c4_container("database", "Database", 
-                 "Stores product, order, and user data", "PostgreSQL"),
-    c4_container("cache", "Cache", 
-                 "Caches frequently accessed data", "Redis")
+    c4_container(
+      "web_app", "Web Application",
+      "Provides e-commerce functionality", "React SPA"
+    ),
+    c4_container(
+      "api", "API Gateway",
+      "Handles all business logic and API requests", "Node.js/Express"
+    ),
+    c4_container(
+      "database", "Database",
+      "Stores product, order, and user data", "PostgreSQL"
+    ),
+    c4_container(
+      "cache", "Cache",
+      "Caches frequently accessed data", "Redis"
+    )
   ),
-  
+
   # External systems (same as context level)
   external_system = list(
     c4_external_system("payment", "Payment Gateway", "Stripe payment processing"),
     c4_external_system("email", "Email Service", "SendGrid email delivery")
   ),
-  
+
   # Relationships between containers
   relationships = list(
     # User interactions
     c4_rel("customer", "web_app", "Uses", "HTTPS"),
     c4_rel("admin", "web_app", "Administers", "HTTPS"),
-    
+
     # Internal container relationships
     c4_rel("web_app", "api", "Makes API calls", "JSON/HTTPS"),
     c4_rel("api", "database", "Reads from and writes to", "SQL/TCP"),
     c4_rel("api", "cache", "Reads from and writes to", "Redis Protocol"),
-    
+
     # External integrations
     c4_rel("api", "payment", "Processes payments", "REST API/HTTPS"),
     c4_rel("api", "email", "Sends emails", "REST API/HTTPS")
@@ -173,27 +183,39 @@ Let's zoom into the API Gateway container:
 ```{r component-example}
 component_diagram <- c4_component_diagram(
   title = "API Gateway - Component View",
-  
+
   # Components within the API Gateway container
   component = list(
-    c4_component("auth_controller", "Authentication Controller", 
-                 "Handles user authentication and authorization", "Express.js"),
-    c4_component("product_controller", "Product Controller", 
-                 "Handles product-related requests", "Express.js"),
-    c4_component("order_controller", "Order Controller", 
-                 "Handles order processing requests", "Express.js"),
-    
-    c4_component("product_service", "Product Service", 
-                 "Business logic for product management", "Node.js"),
-    c4_component("order_service", "Order Service", 
-                 "Business logic for order processing", "Node.js"),
-    
-    c4_component("database_client", "Database Client", 
-                 "Handles database connections and queries", "Sequelize ORM"),
-    c4_component("cache_client", "Cache Client", 
-                 "Manages cache operations", "Redis Client")
+    c4_component(
+      "auth_controller", "Authentication Controller",
+      "Handles user authentication and authorization", "Express.js"
+    ),
+    c4_component(
+      "product_controller", "Product Controller",
+      "Handles product-related requests", "Express.js"
+    ),
+    c4_component(
+      "order_controller", "Order Controller",
+      "Handles order processing requests", "Express.js"
+    ),
+    c4_component(
+      "product_service", "Product Service",
+      "Business logic for product management", "Node.js"
+    ),
+    c4_component(
+      "order_service", "Order Service",
+      "Business logic for order processing", "Node.js"
+    ),
+    c4_component(
+      "database_client", "Database Client",
+      "Handles database connections and queries", "Sequelize ORM"
+    ),
+    c4_component(
+      "cache_client", "Cache Client",
+      "Manages cache operations", "Redis Client"
+    )
   ),
-  
+
   # External systems this container interacts with
   external_system = list(
     c4_external_system("database", "PostgreSQL Database", "Main data store"),
@@ -201,19 +223,19 @@ component_diagram <- c4_component_diagram(
     c4_external_system("payment", "Payment Gateway", "Stripe API"),
     c4_external_system("email", "Email Service", "SendGrid API")
   ),
-  
+
   # Component relationships
   relationships = list(
     # Controller to service relationships
     c4_rel("product_controller", "product_service", "Uses", "Method calls"),
     c4_rel("order_controller", "order_service", "Uses", "Method calls"),
     c4_rel("order_controller", "auth_controller", "Validates auth", "Method calls"),
-    
+
     # Service to data access relationships
     c4_rel("product_service", "database_client", "Reads/writes product data", "SQL"),
     c4_rel("order_service", "database_client", "Reads/writes order data", "SQL"),
     c4_rel("product_service", "cache_client", "Caches product data", "Redis"),
-    
+
     # External integrations
     c4_rel("database_client", "database", "Connects to", "SQL/TCP"),
     c4_rel("cache_client", "cache", "Connects to", "Redis Protocol"),
@@ -251,7 +273,7 @@ default_diagram <- c4_context(
 
 # Dark theme
 dark_diagram <- c4_context(
-  title = "Dark Theme", 
+  title = "Dark Theme",
   person = list(c4_person("user", "User", "System user")),
   system = list(c4_system("app", "Application", "Main system")),
   relationships = list(c4_rel("user", "app", "Uses")),
