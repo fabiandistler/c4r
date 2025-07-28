@@ -301,6 +301,7 @@ check_theme <- function(x, arg = rlang::caller_arg(x), call = rlang::caller_env(
 #' @param b Default value if a is NULL/empty
 #' @return a if not NULL/empty, otherwise b
 #' @keywords internal
+#' @name null-coalescing-operator
 `%||%` <- function(a, b) {
   if (is.null(a) || length(a) == 0 || (is.character(a) && a == "")) b else a
 }
