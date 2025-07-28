@@ -65,11 +65,11 @@ c4_context <- function(title = "System Context",
 #' @return A DiagrammeR graph object
 #' @export
 c4_container_diagram <- function(title = "Container Diagram",
-                         person = list(),
-                         container = list(),
-                         external_system = list(),
-                         relationships = list(),
-                         theme = "default") {
+                                 person = list(),
+                                 container = list(),
+                                 external_system = list(),
+                                 relationships = list(),
+                                 theme = "default") {
   # Input validation
   check_string(title)
   check_list(person)
@@ -101,10 +101,10 @@ c4_container_diagram <- function(title = "Container Diagram",
 #' @return A DiagrammeR graph object
 #' @export
 c4_component_diagram <- function(title = "Component Diagram",
-                         component = list(),
-                         external_system = list(),
-                         relationships = list(),
-                         theme = "default") {
+                                 component = list(),
+                                 external_system = list(),
+                                 relationships = list(),
+                                 theme = "default") {
   # Input validation
   check_string(title)
   check_list(component)

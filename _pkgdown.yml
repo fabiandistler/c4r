@@ -1,4 +1,40 @@
-url: ~
+url: https://fabiandistler.github.io/c4r/
 template:
   bootstrap: 5
+
+navbar:
+  structure:
+    left: [intro, reference, articles, tutorials, news]
+    right: [search, github]
+  components:
+    articles:
+      text: Articles
+      menu:
+      - text: Getting Started
+        href: articles/getting-started.html
+
+articles:
+- title: "Getting Started"
+  navbar: ~
+  contents:
+  - getting-started
+
+reference:
+- title: "Main Functions"
+  desc: "Functions for creating C4 diagrams"
+  contents:
+  - c4_context
+  - c4_container_diagram
+  - c4_component_diagram
+  - c4_demo
+
+- title: "Element Constructors"
+  desc: "Functions for creating diagram elements"
+  contents:
+  - c4_person
+  - c4_system
+  - c4_container
+  - c4_component
+  - c4_external_system
+  - c4_rel
 

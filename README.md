@@ -14,13 +14,43 @@ status](https://www.r-pkg.org/badges/version/c4r)](https://CRAN.R-project.org/pa
 coverage](https://codecov.io/gh/fabiandistler/c4r/graph/badge.svg)](https://app.codecov.io/gh/fabiandistler/c4r)
 <!-- badges: end -->
 
-The goal of c4r is to …
+c4r provides a simple and intuitive R interface for creating C4
+architecture diagrams. The C4 model is a popular approach for
+visualizing software architecture through four levels of abstraction:
+Context, Container, Component, and Code. This package focuses on the
+first three levels, helping you create clear, professional diagrams that
+communicate your system’s structure effectively.
+
+## What are C4 Diagrams?
+
+The C4 model breaks down software architecture visualization into four
+hierarchical levels:
+
+- **System Context**: Shows how your system fits into the overall
+  environment
+- **Container**: Reveals the major technical building blocks of your
+  system  
+- **Component**: Zooms into individual containers to show internal
+  structure
+- **Code**: Details the implementation (not covered by this package)
+
+c4r generates these diagrams using Graphviz DOT notation, rendered
+through DiagrammeR, making them perfect for inclusion in R Markdown
+documents, Shiny applications, or standalone visualization.
 
 ## Installation
 
-You can install the development version of c4r like so:
+You can install the released version of c4r from
+[CRAN](https://CRAN.R-project.org) with:
 
 ``` r
+install.packages("c4r")
+```
+
+And the development version from [GitHub](https://github.com/) with:
+
+``` r
+# install.packages("pak")
 pak::pak("fabiandistler/c4r")
 ```
 
@@ -28,9 +58,21 @@ pak::pak("fabiandistler/c4r")
 
 Full documentation website on: <https://fabiandistler.github.io/c4r/>
 
-## Examples
+## Quick Start
 
-### System Context Example
+Here are examples of each diagram type. For a comprehensive tutorial,
+see the [Getting Started
+guide](https://fabiandistler.github.io/c4r/articles/getting-started.html).
+
+### System Context Diagram
+
+A System Context diagram shows the big picture - your system and how it
+interacts with users and other systems. This is the highest level view,
+perfect for stakeholder communication.
+
+``` r
+library(c4r)
+```
 
 ``` r
 context_demo <- c4_context(
@@ -65,7 +107,11 @@ context_demo <- c4_context(
 )
 ```
 
-### Container Example
+### Container Diagram
+
+A Container diagram zooms into a system to show the major technical
+building blocks. Each container represents a deployable unit like a web
+application, database, or microservice.
 
 ``` r
 container_demo <- c4_container_diagram(
@@ -107,7 +153,12 @@ container_demo <- c4_container_diagram(
 )
 ```
 
-### Component Example
+### Component Diagram
+
+A Component diagram shows the internal structure of a specific
+container, breaking it down into components and their interactions. This
+level is useful for developers working on a particular part of the
+system.
 
 ``` r
 component_demo <- c4_component_diagram(
@@ -143,3 +194,33 @@ component_demo <- c4_component_diagram(
   )
 )
 ```
+
+## Key Features
+
+- **Simple API**: Intuitive functions for creating persons, systems,
+  containers, and components
+- **Multiple Themes**: Built-in color themes (default, dark, blue) with
+  consistent styling
+- **Flexible Relationships**: Support for labeled connections with
+  technology specifications
+- **R Integration**: Native DiagrammeR output works seamlessly with R
+  Markdown and Shiny
+- **Hierarchical Design**: Progressive disclosure from high-level
+  context to detailed components
+
+## Learn More
+
+- [Getting Started
+  Guide](https://fabiandistler.github.io/c4r/articles/getting-started.html) -
+  Comprehensive tutorial
+- [Function Reference](https://fabiandistler.github.io/c4r/reference/) -
+  Complete API documentation  
+- [C4 Model](https://c4model.com/) - Learn about the C4 approach to
+  architecture diagrams
+
+## Related Projects
+
+c4r is inspired by other C4 implementations including
+[Structurizr](https://structurizr.com/) and [PlantUML
+C4](https://github.com/plantuml-stdlib/C4-PlantUML), but designed
+specifically for the R ecosystem.
