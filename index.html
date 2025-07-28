@@ -65,17 +65,133 @@
 <p>Full documentation website on: <a href="https://fabiandistler.github.io/c4r" class="external-link uri">https://fabiandistler.github.io/c4r</a></p>
 </div>
 <div class="section level2">
-<h2 id="example">Example<a class="anchor" aria-label="anchor" href="#example"></a>
+<h2 id="examples">Examples<a class="anchor" aria-label="anchor" href="#examples"></a>
 </h2>
-<p>This is a basic example which shows you how to solve a common problem:</p>
+<div class="section level3">
+<h3 id="system-context-example">System Context Example<a class="anchor" aria-label="anchor" href="#system-context-example"></a>
+</h3>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/fabiandistler/c4r" class="external-link">c4r</a></span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="va">context_demo</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/c4_context.html">c4_context</a></span><span class="op">(</span></span>
+<span>  title <span class="op">=</span> <span class="st">"E-Commerce System - System Context"</span>,</span>
+<span>  person <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
+<span>    <span class="fu"><a href="reference/c4_person.html">c4_person</a></span><span class="op">(</span><span class="st">"customer"</span>, <span class="st">"Customer"</span>, <span class="st">"A person who wants to buy products online"</span><span class="op">)</span>,</span>
+<span>    <span class="fu"><a href="reference/c4_person.html">c4_person</a></span><span class="op">(</span><span class="st">"admin"</span>, <span class="st">"Administrator"</span>, <span class="st">"Manages the e-commerce system"</span><span class="op">)</span></span>
+<span>  <span class="op">)</span>,</span>
+<span>  system <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
+<span>    <span class="fu"><a href="reference/c4_system.html">c4_system</a></span><span class="op">(</span></span>
+<span>      <span class="st">"ecommerce"</span>, <span class="st">"E-Commerce System"</span>,</span>
+<span>      <span class="st">"Allows customers to buy products online and admins to manage inventory"</span></span>
+<span>    <span class="op">)</span></span>
+<span>  <span class="op">)</span>,</span>
+<span>  external_system <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
+<span>    <span class="fu"><a href="reference/c4_external_system.html">c4_external_system</a></span><span class="op">(</span></span>
+<span>      <span class="st">"payment"</span>, <span class="st">"Payment System"</span>,</span>
+<span>      <span class="st">"Processes credit card payments"</span></span>
+<span>    <span class="op">)</span>,</span>
+<span>    <span class="fu"><a href="reference/c4_external_system.html">c4_external_system</a></span><span class="op">(</span></span>
+<span>      <span class="st">"email"</span>, <span class="st">"Email System"</span>,</span>
+<span>      <span class="st">"Sends emails to customers"</span></span>
+<span>    <span class="op">)</span></span>
+<span>  <span class="op">)</span>,</span>
+<span>  relationships <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
+<span>    <span class="fu"><a href="reference/c4_rel.html">c4_rel</a></span><span class="op">(</span><span class="st">"customer"</span>, <span class="st">"ecommerce"</span>, <span class="st">"Views products, makes purchases"</span>, <span class="st">"HTTPS"</span><span class="op">)</span>,</span>
+<span>    <span class="fu"><a href="reference/c4_rel.html">c4_rel</a></span><span class="op">(</span><span class="st">"admin"</span>, <span class="st">"ecommerce"</span>, <span class="st">"Manages products and orders"</span>, <span class="st">"HTTPS"</span><span class="op">)</span>,</span>
+<span>    <span class="fu"><a href="reference/c4_rel.html">c4_rel</a></span><span class="op">(</span><span class="st">"ecommerce"</span>, <span class="st">"payment"</span>, <span class="st">"Processes payments"</span>, <span class="st">"REST API"</span><span class="op">)</span>,</span>
+<span>    <span class="fu"><a href="reference/c4_rel.html">c4_rel</a></span><span class="op">(</span><span class="st">"ecommerce"</span>, <span class="st">"email"</span>, <span class="st">"Sends order confirmations"</span>, <span class="st">"SMTP"</span><span class="op">)</span></span>
+<span>  <span class="op">)</span>,</span>
+<span>  theme <span class="op">=</span> <span class="st">"default"</span></span>
+<span><span class="op">)</span></span></code></pre></div>
+</div>
+<div class="section level3">
+<h3 id="container-example">Container Example<a class="anchor" aria-label="anchor" href="#container-example"></a>
+</h3>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">container_demo</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/c4_container_diagram.html">c4_container_diagram</a></span><span class="op">(</span></span>
+<span>  title <span class="op">=</span> <span class="st">"E-Commerce System - Container Diagram"</span>,</span>
+<span>  person <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
+<span>    <span class="fu"><a href="reference/c4_person.html">c4_person</a></span><span class="op">(</span><span class="st">"customer"</span>, <span class="st">"Customer"</span>, <span class="st">"Buys products online"</span><span class="op">)</span></span>
+<span>  <span class="op">)</span>,</span>
+<span>  container <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
+<span>    <span class="fu"><a href="reference/c4_container.html">c4_container</a></span><span class="op">(</span></span>
+<span>      <span class="st">"web"</span>, <span class="st">"Web Application"</span>,</span>
+<span>      <span class="st">"Provides e-commerce functionality"</span>, <span class="st">"React"</span></span>
+<span>    <span class="op">)</span>,</span>
+<span>    <span class="fu"><a href="reference/c4_container.html">c4_container</a></span><span class="op">(</span></span>
+<span>      <span class="st">"api"</span>, <span class="st">"API Gateway"</span>,</span>
+<span>      <span class="st">"Handles API requests"</span>, <span class="st">"Node.js"</span></span>
+<span>    <span class="op">)</span>,</span>
+<span>    <span class="fu"><a href="reference/c4_container.html">c4_container</a></span><span class="op">(</span></span>
+<span>      <span class="st">"db"</span>, <span class="st">"Database"</span>,</span>
+<span>      <span class="st">"Stores product and order data"</span>, <span class="st">"PostgreSQL"</span></span>
+<span>    <span class="op">)</span>,</span>
+<span>    <span class="fu"><a href="reference/c4_container.html">c4_container</a></span><span class="op">(</span></span>
+<span>      <span class="st">"cache"</span>, <span class="st">"Cache"</span>,</span>
+<span>      <span class="st">"Caches frequently accessed data"</span>, <span class="st">"Redis"</span></span>
+<span>    <span class="op">)</span></span>
+<span>  <span class="op">)</span>,</span>
+<span>  external_system <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
+<span>    <span class="fu"><a href="reference/c4_external_system.html">c4_external_system</a></span><span class="op">(</span></span>
+<span>      <span class="st">"payment"</span>, <span class="st">"Payment System"</span>,</span>
+<span>      <span class="st">"Processes payments"</span></span>
+<span>    <span class="op">)</span></span>
+<span>  <span class="op">)</span>,</span>
+<span>  relationships <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
+<span>    <span class="fu"><a href="reference/c4_rel.html">c4_rel</a></span><span class="op">(</span><span class="st">"customer"</span>, <span class="st">"web"</span>, <span class="st">"Uses"</span>, <span class="st">"HTTPS"</span><span class="op">)</span>,</span>
+<span>    <span class="fu"><a href="reference/c4_rel.html">c4_rel</a></span><span class="op">(</span><span class="st">"web"</span>, <span class="st">"api"</span>, <span class="st">"Makes API calls"</span>, <span class="st">"REST/HTTPS"</span><span class="op">)</span>,</span>
+<span>    <span class="fu"><a href="reference/c4_rel.html">c4_rel</a></span><span class="op">(</span><span class="st">"api"</span>, <span class="st">"db"</span>, <span class="st">"Reads/writes data"</span>, <span class="st">"SQL"</span><span class="op">)</span>,</span>
+<span>    <span class="fu"><a href="reference/c4_rel.html">c4_rel</a></span><span class="op">(</span><span class="st">"api"</span>, <span class="st">"cache"</span>, <span class="st">"Caches data"</span>, <span class="st">"Redis Protocol"</span><span class="op">)</span>,</span>
+<span>    <span class="fu"><a href="reference/c4_rel.html">c4_rel</a></span><span class="op">(</span><span class="st">"api"</span>, <span class="st">"payment"</span>, <span class="st">"Processes payments"</span>, <span class="st">"REST API"</span><span class="op">)</span></span>
+<span>  <span class="op">)</span></span>
+<span><span class="op">)</span></span></code></pre></div>
+</div>
+<div class="section level3">
+<h3 id="component-example">Component Example<a class="anchor" aria-label="anchor" href="#component-example"></a>
+</h3>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">component_demo</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/c4_component_diagram.html">c4_component_diagram</a></span><span class="op">(</span></span>
+<span>  title <span class="op">=</span> <span class="st">"API Gateway - Component Diagram"</span>,</span>
+<span>  component <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
+<span>    <span class="fu"><a href="reference/c4_component.html">c4_component</a></span><span class="op">(</span></span>
+<span>      <span class="st">"controller"</span>, <span class="st">"Order Controller"</span>,</span>
+<span>      <span class="st">"Handles order-related requests"</span>, <span class="st">"Express.js"</span></span>
+<span>    <span class="op">)</span>,</span>
+<span>    <span class="fu"><a href="reference/c4_component.html">c4_component</a></span><span class="op">(</span></span>
+<span>      <span class="st">"service"</span>, <span class="st">"Order Service"</span>,</span>
+<span>      <span class="st">"Business logic for orders"</span>, <span class="st">"Node.js"</span></span>
+<span>    <span class="op">)</span>,</span>
+<span>    <span class="fu"><a href="reference/c4_component.html">c4_component</a></span><span class="op">(</span></span>
+<span>      <span class="st">"repository"</span>, <span class="st">"Order Repository"</span>,</span>
+<span>      <span class="st">"Data access for orders"</span>, <span class="st">"Sequelize ORM"</span></span>
+<span>    <span class="op">)</span>,</span>
+<span>    <span class="fu"><a href="reference/c4_component.html">c4_component</a></span><span class="op">(</span></span>
+<span>      <span class="st">"validator"</span>, <span class="st">"Input Validator"</span>,</span>
+<span>      <span class="st">"Validates incoming requests"</span>, <span class="st">"Joi"</span></span>
+<span>    <span class="op">)</span></span>
+<span>  <span class="op">)</span>,</span>
+<span>  external_system <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
+<span>    <span class="fu"><a href="reference/c4_external_system.html">c4_external_system</a></span><span class="op">(</span><span class="st">"db"</span>, <span class="st">"Database"</span>, <span class="st">"PostgreSQL database"</span><span class="op">)</span>,</span>
+<span>    <span class="fu"><a href="reference/c4_external_system.html">c4_external_system</a></span><span class="op">(</span><span class="st">"payment"</span>, <span class="st">"Payment API"</span>, <span class="st">"External payment service"</span><span class="op">)</span></span>
+<span>  <span class="op">)</span>,</span>
+<span>  relationships <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
+<span>    <span class="fu"><a href="reference/c4_rel.html">c4_rel</a></span><span class="op">(</span><span class="st">"controller"</span>, <span class="st">"validator"</span>, <span class="st">"Validates input"</span>, <span class="st">"Function call"</span><span class="op">)</span>,</span>
+<span>    <span class="fu"><a href="reference/c4_rel.html">c4_rel</a></span><span class="op">(</span><span class="st">"controller"</span>, <span class="st">"service"</span>, <span class="st">"Calls business logic"</span>, <span class="st">"Function call"</span><span class="op">)</span>,</span>
+<span>    <span class="fu"><a href="reference/c4_rel.html">c4_rel</a></span><span class="op">(</span><span class="st">"service"</span>, <span class="st">"repository"</span>, <span class="st">"Persists data"</span>, <span class="st">"Function call"</span><span class="op">)</span>,</span>
+<span>    <span class="fu"><a href="reference/c4_rel.html">c4_rel</a></span><span class="op">(</span><span class="st">"repository"</span>, <span class="st">"db"</span>, <span class="st">"Executes queries"</span>, <span class="st">"SQL"</span><span class="op">)</span>,</span>
+<span>    <span class="fu"><a href="reference/c4_rel.html">c4_rel</a></span><span class="op">(</span><span class="st">"service"</span>, <span class="st">"payment"</span>, <span class="st">"Processes payments"</span>, <span class="st">"REST API"</span><span class="op">)</span></span>
+<span>  <span class="op">)</span></span>
+<span><span class="op">)</span></span>
 <span></span>
-<span></span>
-<span><span class="co"># demos &lt;- c4_demo()</span></span>
-<span><span class="co"># demos$context # View context diagram</span></span>
-<span><span class="co"># demos$container # View container diagram</span></span>
-<span><span class="co"># demos$component # View component diagram</span></span></code></pre></div>
+<span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
+<span>  context <span class="op">=</span> <span class="va">context_demo</span>,</span>
+<span>  container <span class="op">=</span> <span class="va">container_demo</span>,</span>
+<span>  component <span class="op">=</span> <span class="va">component_demo</span></span>
+<span><span class="op">)</span></span>
+<span><span class="co">#&gt; $context</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $container</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $component</span></span></code></pre></div>
+</div>
 </div>
 </div>
   </main><aside class="col-md-3"><div class="links">
