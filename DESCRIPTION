@@ -1,8 +1,7 @@
 Package: c4r
 Title: Create C4 Architecture Diagrams
 Version: 0.1.0
-Authors@R: 
-    person("Fabian", "Distler", , "fabian@example.com", role = c("aut", "cre"))
+Authors@R: person("Fabian", "Distler", email = "example@email.com", role = c("aut", "cre"))
 Description: Provides functions to create C4 architecture diagrams
     (Context, Container, Component, and Code diagrams) using a simple R
     interface. The package generates diagrams in DOT notation that can be
@@ -22,6 +21,8 @@ Imports:
     stringr,
     tibble
 Suggests: 
+    knitr,
+    rmarkdown,
     spelling,
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
@@ -29,3 +30,4 @@ Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.2
 Language: en-US
+VignetteBuilder: knitr
