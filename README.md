@@ -34,5 +34,10 @@ This is a basic example which shows you how to solve a common problem:
 
 ``` r
 library(c4r)
-## basic example code
+
+
+# demos <- c4_demo()
+# demos$context # View context diagram
+# demos$container # View container diagram
+# demos$component # View component diagram
 ```
