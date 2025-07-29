@@ -32,12 +32,7 @@
     <div id="navbar" class="collapse navbar-collapse ms-3">
       <ul class="navbar-nav me-auto">
 <li class="nav-item"><a class="nav-link" href="reference/index.html">Reference</a></li>
-<li class="nav-item dropdown">
-  <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
-  <ul class="dropdown-menu" aria-labelledby="dropdown-articles">
-<li><a class="dropdown-item" href="articles/getting-started.html">Getting Started</a></li>
-  </ul>
-</li>
+<li class="nav-item"><a class="nav-link" href="articles/getting-started.html">Getting Started</a></li>
 <li class="nav-item"><a class="nav-link" href="news/index.html">Changelog</a></li>
       </ul>
 <ul class="navbar-nav">
@@ -57,197 +52,38 @@
 </h1></div>
 <!-- badges: start -->
 
-<p>c4r provides a simple and intuitive R interface for creating C4 architecture diagrams. The C4 model is a popular approach for visualizing software architecture through four levels of abstraction: Context, Container, Component, and Code. This package focuses on the first three levels, helping you create clear, professional diagrams that communicate your system’s structure effectively.</p>
-<div class="section level2">
-<h2 id="what-are-c4-diagrams">What are C4 Diagrams?<a class="anchor" aria-label="anchor" href="#what-are-c4-diagrams"></a>
-</h2>
-<p>The C4 model breaks down software architecture visualization into four hierarchical levels:</p>
-<ul>
-<li>
-<strong>System Context</strong>: Shows how your system fits into the overall environment</li>
-<li>
-<strong>Container</strong>: Reveals the major technical building blocks of your system<br>
-</li>
-<li>
-<strong>Component</strong>: Zooms into individual containers to show internal structure</li>
-<li>
-<strong>Code</strong>: Details the implementation (not covered by this package)</li>
-</ul>
-<p>c4r generates these diagrams using Graphviz DOT notation, rendered through DiagrammeR, making them perfect for inclusion in R Markdown documents, Shiny applications, or standalone visualization.</p>
-</div>
+<p>c4r provides a simple R interface for creating C4 architecture diagrams. The package focuses on the first three levels of the C4 model (Context, Container, Component), generating diagrams using Graphviz DOT notation rendered through {DiagrammeR}. For the Code level, consider the <a href="https://github.com/moodymudskipper/flow" class="external-link">{flow}</a> package.</p>
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
 </h2>
-<p>You can install the released version of c4r from <a href="https://CRAN.R-project.org" class="external-link">CRAN</a> with:</p>
+<p>c4r is not yet available on CRAN. You can install the development version from GitHub:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"c4r"</span><span class="op">)</span></span></code></pre></div>
-<p>And the development version from <a href="https://github.com/" class="external-link">GitHub</a> with:</p>
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># install.packages("pak")</span></span>
 <span><span class="fu">pak</span><span class="fu">::</span><span class="fu"><a href="https://pak.r-lib.org/reference/pak.html" class="external-link">pak</a></span><span class="op">(</span><span class="st">"fabiandistler/c4r"</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
-<h2 id="documentation">Documentation<a class="anchor" aria-label="anchor" href="#documentation"></a>
+<h2 id="quick-example">Quick Example<a class="anchor" aria-label="anchor" href="#quick-example"></a>
 </h2>
-<p>Full documentation website on: <a href="https://fabiandistler.github.io/c4r/" class="uri">https://fabiandistler.github.io/c4r/</a></p>
-</div>
-<div class="section level2">
-<h2 id="quick-start">Quick Start<a class="anchor" aria-label="anchor" href="#quick-start"></a>
-</h2>
-<p>Here are examples of each diagram type. For a comprehensive tutorial, see the <a href="https://fabiandistler.github.io/c4r/articles/getting-started.html">Getting Started guide</a>.</p>
-<div class="section level3">
-<h3 id="system-context-diagram">System Context Diagram<a class="anchor" aria-label="anchor" href="#system-context-diagram"></a>
-</h3>
-<p>A System Context diagram shows the big picture - your system and how it interacts with users and other systems. This is the highest level view, perfect for stakeholder communication.</p>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/fabiandistler/c4r" class="external-link">c4r</a></span><span class="op">)</span></span></code></pre></div>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">context_demo</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/c4_context.html">c4_context</a></span><span class="op">(</span></span>
-<span>  title <span class="op">=</span> <span class="st">"E-Commerce System - System Context"</span>,</span>
-<span>  person <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
-<span>    <span class="fu"><a href="reference/c4_person.html">c4_person</a></span><span class="op">(</span><span class="st">"customer"</span>, <span class="st">"Customer"</span>, <span class="st">"A person who wants to buy products online"</span><span class="op">)</span>,</span>
-<span>    <span class="fu"><a href="reference/c4_person.html">c4_person</a></span><span class="op">(</span><span class="st">"admin"</span>, <span class="st">"Administrator"</span>, <span class="st">"Manages the e-commerce system"</span><span class="op">)</span></span>
-<span>  <span class="op">)</span>,</span>
-<span>  system <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
-<span>    <span class="fu"><a href="reference/c4_system.html">c4_system</a></span><span class="op">(</span></span>
-<span>      <span class="st">"ecommerce"</span>, <span class="st">"E-Commerce System"</span>,</span>
-<span>      <span class="st">"Allows customers to buy products online and admins to manage inventory"</span></span>
-<span>    <span class="op">)</span></span>
-<span>  <span class="op">)</span>,</span>
-<span>  external_system <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
-<span>    <span class="fu"><a href="reference/c4_external_system.html">c4_external_system</a></span><span class="op">(</span></span>
-<span>      <span class="st">"payment"</span>, <span class="st">"Payment System"</span>,</span>
-<span>      <span class="st">"Processes credit card payments"</span></span>
-<span>    <span class="op">)</span>,</span>
-<span>    <span class="fu"><a href="reference/c4_external_system.html">c4_external_system</a></span><span class="op">(</span></span>
-<span>      <span class="st">"email"</span>, <span class="st">"Email System"</span>,</span>
-<span>      <span class="st">"Sends emails to customers"</span></span>
-<span>    <span class="op">)</span></span>
-<span>  <span class="op">)</span>,</span>
-<span>  relationships <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
-<span>    <span class="fu"><a href="reference/c4_rel.html">c4_rel</a></span><span class="op">(</span><span class="st">"customer"</span>, <span class="st">"ecommerce"</span>, <span class="st">"Views products, makes purchases"</span>, <span class="st">"HTTPS"</span><span class="op">)</span>,</span>
-<span>    <span class="fu"><a href="reference/c4_rel.html">c4_rel</a></span><span class="op">(</span><span class="st">"admin"</span>, <span class="st">"ecommerce"</span>, <span class="st">"Manages products and orders"</span>, <span class="st">"HTTPS"</span><span class="op">)</span>,</span>
-<span>    <span class="fu"><a href="reference/c4_rel.html">c4_rel</a></span><span class="op">(</span><span class="st">"ecommerce"</span>, <span class="st">"payment"</span>, <span class="st">"Processes payments"</span>, <span class="st">"REST API"</span><span class="op">)</span>,</span>
-<span>    <span class="fu"><a href="reference/c4_rel.html">c4_rel</a></span><span class="op">(</span><span class="st">"ecommerce"</span>, <span class="st">"email"</span>, <span class="st">"Sends order confirmations"</span>, <span class="st">"SMTP"</span><span class="op">)</span></span>
-<span>  <span class="op">)</span>,</span>
-<span>  theme <span class="op">=</span> <span class="st">"default"</span></span>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/fabiandistler/c4r" class="external-link">c4r</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Create a simple system context diagram</span></span>
+<span><span class="fu"><a href="reference/c4_context.html">c4_context</a></span><span class="op">(</span></span>
+<span>  title <span class="op">=</span> <span class="st">"My System Context"</span>,</span>
+<span>  person <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="fu"><a href="reference/c4_person.html">c4_person</a></span><span class="op">(</span><span class="st">"user"</span>, <span class="st">"User"</span>, <span class="st">"System user"</span><span class="op">)</span><span class="op">)</span>,</span>
+<span>  system <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="fu"><a href="reference/c4_system.html">c4_system</a></span><span class="op">(</span><span class="st">"app"</span>, <span class="st">"My App"</span>, <span class="st">"Does something useful"</span><span class="op">)</span><span class="op">)</span>,</span>
+<span>  relationships <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="fu"><a href="reference/c4_rel.html">c4_rel</a></span><span class="op">(</span><span class="st">"user"</span>, <span class="st">"app"</span>, <span class="st">"Uses"</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="op">)</span></span></code></pre></div>
-</div>
-<div class="section level3">
-<h3 id="container-diagram">Container Diagram<a class="anchor" aria-label="anchor" href="#container-diagram"></a>
-</h3>
-<p>A Container diagram zooms into a system to show the major technical building blocks. Each container represents a deployable unit like a web application, database, or microservice.</p>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">container_demo</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/c4_container_diagram.html">c4_container_diagram</a></span><span class="op">(</span></span>
-<span>  title <span class="op">=</span> <span class="st">"E-Commerce System - Container Diagram"</span>,</span>
-<span>  person <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
-<span>    <span class="fu"><a href="reference/c4_person.html">c4_person</a></span><span class="op">(</span><span class="st">"customer"</span>, <span class="st">"Customer"</span>, <span class="st">"Buys products online"</span><span class="op">)</span></span>
-<span>  <span class="op">)</span>,</span>
-<span>  container <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
-<span>    <span class="fu"><a href="reference/c4_container.html">c4_container</a></span><span class="op">(</span></span>
-<span>      <span class="st">"web"</span>, <span class="st">"Web Application"</span>,</span>
-<span>      <span class="st">"Provides e-commerce functionality"</span>, <span class="st">"React"</span></span>
-<span>    <span class="op">)</span>,</span>
-<span>    <span class="fu"><a href="reference/c4_container.html">c4_container</a></span><span class="op">(</span></span>
-<span>      <span class="st">"api"</span>, <span class="st">"API Gateway"</span>,</span>
-<span>      <span class="st">"Handles API requests"</span>, <span class="st">"Node.js"</span></span>
-<span>    <span class="op">)</span>,</span>
-<span>    <span class="fu"><a href="reference/c4_container.html">c4_container</a></span><span class="op">(</span></span>
-<span>      <span class="st">"db"</span>, <span class="st">"Database"</span>,</span>
-<span>      <span class="st">"Stores product and order data"</span>, <span class="st">"PostgreSQL"</span></span>
-<span>    <span class="op">)</span>,</span>
-<span>    <span class="fu"><a href="reference/c4_container.html">c4_container</a></span><span class="op">(</span></span>
-<span>      <span class="st">"cache"</span>, <span class="st">"Cache"</span>,</span>
-<span>      <span class="st">"Caches frequently accessed data"</span>, <span class="st">"Redis"</span></span>
-<span>    <span class="op">)</span></span>
-<span>  <span class="op">)</span>,</span>
-<span>  external_system <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
-<span>    <span class="fu"><a href="reference/c4_external_system.html">c4_external_system</a></span><span class="op">(</span></span>
-<span>      <span class="st">"payment"</span>, <span class="st">"Payment System"</span>,</span>
-<span>      <span class="st">"Processes payments"</span></span>
-<span>    <span class="op">)</span></span>
-<span>  <span class="op">)</span>,</span>
-<span>  relationships <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
-<span>    <span class="fu"><a href="reference/c4_rel.html">c4_rel</a></span><span class="op">(</span><span class="st">"customer"</span>, <span class="st">"web"</span>, <span class="st">"Uses"</span>, <span class="st">"HTTPS"</span><span class="op">)</span>,</span>
-<span>    <span class="fu"><a href="reference/c4_rel.html">c4_rel</a></span><span class="op">(</span><span class="st">"web"</span>, <span class="st">"api"</span>, <span class="st">"Makes API calls"</span>, <span class="st">"REST/HTTPS"</span><span class="op">)</span>,</span>
-<span>    <span class="fu"><a href="reference/c4_rel.html">c4_rel</a></span><span class="op">(</span><span class="st">"api"</span>, <span class="st">"db"</span>, <span class="st">"Reads/writes data"</span>, <span class="st">"SQL"</span><span class="op">)</span>,</span>
-<span>    <span class="fu"><a href="reference/c4_rel.html">c4_rel</a></span><span class="op">(</span><span class="st">"api"</span>, <span class="st">"cache"</span>, <span class="st">"Caches data"</span>, <span class="st">"Redis Protocol"</span><span class="op">)</span>,</span>
-<span>    <span class="fu"><a href="reference/c4_rel.html">c4_rel</a></span><span class="op">(</span><span class="st">"api"</span>, <span class="st">"payment"</span>, <span class="st">"Processes payments"</span>, <span class="st">"REST API"</span><span class="op">)</span></span>
-<span>  <span class="op">)</span></span>
-<span><span class="op">)</span></span></code></pre></div>
-</div>
-<div class="section level3">
-<h3 id="component-diagram">Component Diagram<a class="anchor" aria-label="anchor" href="#component-diagram"></a>
-</h3>
-<p>A Component diagram shows the internal structure of a specific container, breaking it down into components and their interactions. This level is useful for developers working on a particular part of the system.</p>
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">component_demo</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/c4_component_diagram.html">c4_component_diagram</a></span><span class="op">(</span></span>
-<span>  title <span class="op">=</span> <span class="st">"API Gateway - Component Diagram"</span>,</span>
-<span>  component <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
-<span>    <span class="fu"><a href="reference/c4_component.html">c4_component</a></span><span class="op">(</span></span>
-<span>      <span class="st">"controller"</span>, <span class="st">"Order Controller"</span>,</span>
-<span>      <span class="st">"Handles order-related requests"</span>, <span class="st">"Express.js"</span></span>
-<span>    <span class="op">)</span>,</span>
-<span>    <span class="fu"><a href="reference/c4_component.html">c4_component</a></span><span class="op">(</span></span>
-<span>      <span class="st">"service"</span>, <span class="st">"Order Service"</span>,</span>
-<span>      <span class="st">"Business logic for orders"</span>, <span class="st">"Node.js"</span></span>
-<span>    <span class="op">)</span>,</span>
-<span>    <span class="fu"><a href="reference/c4_component.html">c4_component</a></span><span class="op">(</span></span>
-<span>      <span class="st">"repository"</span>, <span class="st">"Order Repository"</span>,</span>
-<span>      <span class="st">"Data access for orders"</span>, <span class="st">"Sequelize ORM"</span></span>
-<span>    <span class="op">)</span>,</span>
-<span>    <span class="fu"><a href="reference/c4_component.html">c4_component</a></span><span class="op">(</span></span>
-<span>      <span class="st">"validator"</span>, <span class="st">"Input Validator"</span>,</span>
-<span>      <span class="st">"Validates incoming requests"</span>, <span class="st">"Joi"</span></span>
-<span>    <span class="op">)</span></span>
-<span>  <span class="op">)</span>,</span>
-<span>  external_system <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
-<span>    <span class="fu"><a href="reference/c4_external_system.html">c4_external_system</a></span><span class="op">(</span><span class="st">"db"</span>, <span class="st">"Database"</span>, <span class="st">"PostgreSQL database"</span><span class="op">)</span>,</span>
-<span>    <span class="fu"><a href="reference/c4_external_system.html">c4_external_system</a></span><span class="op">(</span><span class="st">"payment"</span>, <span class="st">"Payment API"</span>, <span class="st">"External payment service"</span><span class="op">)</span></span>
-<span>  <span class="op">)</span>,</span>
-<span>  relationships <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
-<span>    <span class="fu"><a href="reference/c4_rel.html">c4_rel</a></span><span class="op">(</span><span class="st">"controller"</span>, <span class="st">"validator"</span>, <span class="st">"Validates input"</span>, <span class="st">"Function call"</span><span class="op">)</span>,</span>
-<span>    <span class="fu"><a href="reference/c4_rel.html">c4_rel</a></span><span class="op">(</span><span class="st">"controller"</span>, <span class="st">"service"</span>, <span class="st">"Calls business logic"</span>, <span class="st">"Function call"</span><span class="op">)</span>,</span>
-<span>    <span class="fu"><a href="reference/c4_rel.html">c4_rel</a></span><span class="op">(</span><span class="st">"service"</span>, <span class="st">"repository"</span>, <span class="st">"Persists data"</span>, <span class="st">"Function call"</span><span class="op">)</span>,</span>
-<span>    <span class="fu"><a href="reference/c4_rel.html">c4_rel</a></span><span class="op">(</span><span class="st">"repository"</span>, <span class="st">"db"</span>, <span class="st">"Executes queries"</span>, <span class="st">"SQL"</span><span class="op">)</span>,</span>
-<span>    <span class="fu"><a href="reference/c4_rel.html">c4_rel</a></span><span class="op">(</span><span class="st">"service"</span>, <span class="st">"payment"</span>, <span class="st">"Processes payments"</span>, <span class="st">"REST API"</span><span class="op">)</span></span>
-<span>  <span class="op">)</span></span>
-<span><span class="op">)</span></span></code></pre></div>
-</div>
-</div>
-<div class="section level2">
-<h2 id="key-features">Key Features<a class="anchor" aria-label="anchor" href="#key-features"></a>
-</h2>
-<ul>
-<li>
-<strong>Simple API</strong>: Intuitive functions for creating persons, systems, containers, and components</li>
-<li>
-<strong>Multiple Themes</strong>: Built-in color themes (default, dark, blue) with consistent styling</li>
-<li>
-<strong>Flexible Relationships</strong>: Support for labeled connections with technology specifications</li>
-<li>
-<strong>R Integration</strong>: Native DiagrammeR output works seamlessly with R Markdown and Shiny</li>
-<li>
-<strong>Hierarchical Design</strong>: Progressive disclosure from high-level context to detailed components</li>
-</ul>
 </div>
 <div class="section level2">
 <h2 id="learn-more">Learn More<a class="anchor" aria-label="anchor" href="#learn-more"></a>
 </h2>
 <ul>
 <li>
-<a href="https://fabiandistler.github.io/c4r/articles/getting-started.html">Getting Started Guide</a> - Comprehensive tutorial</li>
+<strong><a href="https://fabiandistler.github.io/c4r/articles/getting-started.html">Getting Started Guide</a></strong> - Complete tutorial with examples</li>
 <li>
-<a href="https://fabiandistler.github.io/c4r/reference/">Function Reference</a> - Complete API documentation<br>
-</li>
-<li>
-<a href="https://c4model.com/" class="external-link">C4 Model</a> - Learn about the C4 approach to architecture diagrams</li>
+<strong><a href="https://fabiandistler.github.io/c4r/reference/">Function Reference</a></strong> - API documentation</li>
 </ul>
-</div>
-<div class="section level2">
-<h2 id="related-projects">Related Projects<a class="anchor" aria-label="anchor" href="#related-projects"></a>
-</h2>
-<p>c4r is inspired by other C4 implementations including <a href="https://structurizr.com/" class="external-link">Structurizr</a> and <a href="https://github.com/plantuml-stdlib/C4-PlantUML" class="external-link">PlantUML C4</a>, but designed specifically for the R ecosystem.</p>
 </div>
 </div>
   </main><aside class="col-md-3"><div class="links">
