@@ -37,7 +37,7 @@ library(c4r)
 
 # Create a simple system context diagram
 c4_context(
-  title = "My System Context", 
+  title = "My System Context",
   person = list(c4_person("user", "User", "System user")),
   system = list(c4_system("app", "My App", "Does something useful")),
   relationships = list(c4_rel("user", "app", "Uses"))
