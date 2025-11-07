@@ -32,14 +32,22 @@ c4_context <- function(title = "System Context",
                        system = list(),
                        external_system = list(),
                        relationships = list(),
-                       theme = "default") {
+                       theme = "default",
+                       groups = list()) {
   # Input validation
   check_string(title)
   check_list(person)
   check_list(system)
   check_list(external_system)
   check_list(relationships)
-  check_theme(theme)
+  check_list(groups)
+
+  # Validate theme (accept both string and c4_theme object)
+  if (is.character(theme)) {
+    check_theme(theme)
+  } else if (!inherits(theme, "c4_theme")) {
+    cli::cli_abort("{.arg theme} must be a theme name or c4_theme object")
+  }
 
   # Create nodes
   nodes <- create_c4_nodes(person, system, external_system, level = "context")
@@ -48,7 +56,7 @@ c4_context <- function(title = "System Context",
   edges <- create_c4_edges(relationships)
 
   # Generate DOT notation
-  dot_code <- generate_c4_dot(title, nodes, edges, theme, level = "context")
+  dot_code <- generate_c4_dot(title, nodes, edges, theme, level = "context", groups = groups)
 
   # Create DiagrammeR graph
   DiagrammeR::grViz(dot_code)
@@ -69,14 +77,22 @@ c4_container_diagram <- function(title = "Container Diagram",
                                  container = list(),
                                  external_system = list(),
                                  relationships = list(),
-                                 theme = "default") {
+                                 theme = "default",
+                                 groups = list()) {
   # Input validation
   check_string(title)
   check_list(person)
   check_list(container)
   check_list(external_system)
   check_list(relationships)
-  check_theme(theme)
+  check_list(groups)
+
+  # Validate theme (accept both string and c4_theme object)
+  if (is.character(theme)) {
+    check_theme(theme)
+  } else if (!inherits(theme, "c4_theme")) {
+    cli::cli_abort("{.arg theme} must be a theme name or c4_theme object")
+  }
 
   # Create nodes
   nodes <- create_c4_nodes(person, container, external_system, level = "container")
@@ -85,7 +101,7 @@ c4_container_diagram <- function(title = "Container Diagram",
   edges <- create_c4_edges(relationships)
 
   # Generate DOT notation
-  dot_code <- generate_c4_dot(title, nodes, edges, theme, level = "container")
+  dot_code <- generate_c4_dot(title, nodes, edges, theme, level = "container", groups = groups)
 
   # Create DiagrammeR graph
   DiagrammeR::grViz(dot_code)
@@ -104,13 +120,21 @@ c4_component_diagram <- function(title = "Component Diagram",
                                  component = list(),
                                  external_system = list(),
                                  relationships = list(),
-                                 theme = "default") {
+                                 theme = "default",
+                                 groups = list()) {
   # Input validation
   check_string(title)
   check_list(component)
   check_list(external_system)
   check_list(relationships)
-  check_theme(theme)
+  check_list(groups)
+
+  # Validate theme (accept both string and c4_theme object)
+  if (is.character(theme)) {
+    check_theme(theme)
+  } else if (!inherits(theme, "c4_theme")) {
+    cli::cli_abort("{.arg theme} must be a theme name or c4_theme object")
+  }
 
   # Create nodes
   nodes <- create_c4_nodes(list(), component, external_system, level = "component")
@@ -119,7 +143,7 @@ c4_component_diagram <- function(title = "Component Diagram",
   edges <- create_c4_edges(relationships)
 
   # Generate DOT notation
-  dot_code <- generate_c4_dot(title, nodes, edges, theme, level = "component")
+  dot_code <- generate_c4_dot(title, nodes, edges, theme, level = "component", groups = groups)
 
   # Create DiagrammeR graph
   DiagrammeR::grViz(dot_code)

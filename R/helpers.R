@@ -85,12 +85,19 @@ create_c4_edges <- function(relationships) {
   }
 
   purrr::map_dfr(relationships, ~ {
-    tibble::tibble(
+    base_edge <- tibble::tibble(
       from = .x$from,
       to = .x$to,
       label = .x$label %||% "",
       technology = .x$technology %||% ""
     )
+
+    # Add advanced relationship attributes if present
+    if (!is.null(.x$type)) base_edge$type <- .x$type
+    if (!is.null(.x$style)) base_edge$style <- .x$style
+    if (!is.null(.x$direction)) base_edge$direction <- .x$direction
+
+    base_edge
   })
 }
 
@@ -98,13 +105,18 @@ create_c4_edges <- function(relationships) {
 #' @param title Character string for diagram title
 #' @param nodes Data frame of nodes
 #' @param edges Data frame of edges
-#' @param theme Character string for theme
+#' @param theme Character string for theme or c4_theme object
 #' @param level Character string for diagram level
+#' @param groups List of group objects (optional)
 #' @return Character string with DOT notation
 #' @keywords internal
-generate_c4_dot <- function(title, nodes, edges, theme, level) {
-  # Get theme colors
-  colors <- get_c4_theme(theme)
+generate_c4_dot <- function(title, nodes, edges, theme, level, groups = list()) {
+  # Get theme colors (support both string themes and custom theme objects)
+  if (inherits(theme, "c4_theme")) {
+    colors <- theme
+  } else {
+    colors <- get_c4_theme(theme)
+  }
 
   # Build DOT string using glue for better readability
   dot_header <- glue::glue(
@@ -120,35 +132,59 @@ generate_c4_dot <- function(title, nodes, edges, theme, level) {
     '
   )
 
-  # Add nodes
-  dot_nodes <- ""
-  if (nrow(nodes) > 0) {
-    dot_nodes <- purrr::pmap_chr(nodes, function(id, label, type, description, technology) {
-      style <- get_node_style(type, colors)
-      node_label <- create_node_label(label, description, technology)
-
-      glue::glue('  {id} [label="{node_label}", {style}];')
-    }) |>
-      paste(collapse = "\n")
+  # Add groups (subgraphs)
+  dot_groups <- ""
+  if (length(groups) > 0) {
+    dot_groups <- generate_group_dot(groups, colors)
   }
 
-  # Add edges
+  # Add nodes (exclude nodes that are in groups)
+  dot_nodes <- ""
+  if (nrow(nodes) > 0) {
+    # Get IDs of nodes in groups
+    grouped_ids <- character(0)
+    if (length(groups) > 0) {
+      grouped_ids <- unique(unlist(purrr::map(groups, ~ .x$members)))
+    }
+
+    # Only render nodes not in groups here (grouped nodes are in subgraphs)
+    ungrouped_nodes <- nodes[!nodes$id %in% grouped_ids, ]
+
+    if (nrow(ungrouped_nodes) > 0) {
+      dot_nodes <- purrr::pmap_chr(ungrouped_nodes, function(id, label, type, description, technology) {
+        style <- get_node_style(type, colors)
+        node_label <- create_node_label(label, description, technology)
+
+        glue::glue('  {id} [label="{node_label}", {style}];')
+      }) |>
+        paste(collapse = "\n")
+    }
+  }
+
+  # Add edges (support advanced relationship attributes)
   dot_edges <- ""
   if (nrow(edges) > 0) {
-    dot_edges <- purrr::pmap_chr(edges, function(from, to, label, technology) {
-      edge_label <- if (technology != "") {
-        glue::glue("{label}\\n[{technology}]")
-      } else {
-        label
-      }
+    # Check if we have advanced relationship attributes
+    has_advanced <- any(c("type", "style", "direction") %in% names(edges))
 
-      glue::glue('  {from} -> {to} [label="{edge_label}", color="{colors$edge}"];')
-    }) |>
-      paste(collapse = "\n")
+    if (has_advanced) {
+      dot_edges <- generate_advanced_edges_dot(edges, colors)
+    } else {
+      dot_edges <- purrr::pmap_chr(edges, function(from, to, label, technology, ...) {
+        edge_label <- if (technology != "") {
+          glue::glue("{label}\\n[{technology}]")
+        } else {
+          label
+        }
+
+        glue::glue('  {from} -> {to} [label="{edge_label}", color="{colors$edge}"];')
+      }) |>
+        paste(collapse = "\n")
+    }
   }
 
   # Combine all parts
-  paste(dot_header, dot_nodes, "", dot_edges, "}", sep = "\n")
+  paste(dot_header, dot_groups, dot_nodes, "", dot_edges, "}", sep = "\n")
 }
 
 #' Get C4 theme colors
