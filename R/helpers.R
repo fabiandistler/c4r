@@ -291,6 +291,7 @@ escape_dot_string <- function(string) {
 #' Check if input is a single string
 #' @param x Input to check
 #' @param arg Argument name for error message
+#' @param call Calling environment for error reporting
 #' @keywords internal
 check_string <- function(x, arg = rlang::caller_arg(x), call = rlang::caller_env()) {
   if (!is.character(x) || length(x) != 1) {
@@ -304,6 +305,7 @@ check_string <- function(x, arg = rlang::caller_arg(x), call = rlang::caller_env
 #' Check if input is a list
 #' @param x Input to check
 #' @param arg Argument name for error message
+#' @param call Calling environment for error reporting
 #' @keywords internal
 check_list <- function(x, arg = rlang::caller_arg(x), call = rlang::caller_env()) {
   if (!is.list(x)) {
@@ -317,6 +319,7 @@ check_list <- function(x, arg = rlang::caller_arg(x), call = rlang::caller_env()
 #' Check if theme is valid
 #' @param x Input to check
 #' @param arg Argument name for error message
+#' @param call Calling environment for error reporting
 #' @keywords internal
 check_theme <- function(x, arg = rlang::caller_arg(x), call = rlang::caller_env()) {
   check_string(x, arg, call)

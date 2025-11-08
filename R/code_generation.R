@@ -90,36 +90,42 @@ diagram_to_code <- function(elements, relationships, title = "System Diagram", t
 }
 
 #' Generate code for a person element
+#' @param person Person element
 #' @keywords internal
 generate_person_code <- function(person) {
   glue::glue('{person$id} <- c4_person("{person$id}", "{person$label}", "{person$description}")')
 }
 
 #' Generate code for a system element
+#' @param system System element
 #' @keywords internal
 generate_system_code <- function(system) {
   glue::glue('{system$id} <- c4_system("{system$id}", "{system$label}", "{system$description}", "{system$technology %||% ""}")')
 }
 
 #' Generate code for a container element
+#' @param container Container element
 #' @keywords internal
 generate_container_code <- function(container) {
   glue::glue('{container$id} <- c4_container("{container$id}", "{container$label}", "{container$description}", "{container$technology %||% ""}")')
 }
 
 #' Generate code for a component element
+#' @param component Component element
 #' @keywords internal
 generate_component_code <- function(component) {
   glue::glue('{component$id} <- c4_component("{component$id}", "{component$label}", "{component$description}", "{component$technology %||% ""}")')
 }
 
 #' Generate code for an external system
+#' @param external External system element
 #' @keywords internal
 generate_external_code <- function(external) {
   glue::glue('{external$id} <- c4_external_system("{external$id}", "{external$label}", "{external$description}")')
 }
 
 #' Generate code for a relationship
+#' @param rel Relationship element
 #' @keywords internal
 generate_rel_code <- function(rel) {
   id <- make.names(paste0("rel_", rel$from, "_", rel$to))
@@ -127,6 +133,11 @@ generate_rel_code <- function(rel) {
 }
 
 #' Generate diagram creation code
+#' @param elements Named list of elements
+#' @param relationships List of relationships
+#' @param title Diagram title
+#' @param theme Theme name
+#' @param diagram_type Type of diagram
 #' @keywords internal
 generate_diagram_code <- function(elements, relationships, title, theme, diagram_type) {
   lines <- character(0)
