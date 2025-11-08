@@ -5,7 +5,8 @@
 #' @param system List of system elements
 #' @param external_system List of external system elements
 #' @param relationships List of relationships between elements
-#' @param theme Character string for color theme ("default", "dark", "blue")
+#' @param theme Character string for color theme ("default", "dark", "blue") or a c4_theme object
+#' @param groups List of group/boundary objects (optional)
 #' @return A DiagrammeR graph object
 #' @export
 #' @examples
@@ -69,7 +70,8 @@ c4_context <- function(title = "System Context",
 #' @param container List of container elements
 #' @param external_system List of external system elements
 #' @param relationships List of relationships between elements
-#' @param theme Character string for color theme
+#' @param theme Character string for color theme or a c4_theme object
+#' @param groups List of group/boundary objects (optional)
 #' @return A DiagrammeR graph object
 #' @export
 c4_container_diagram <- function(title = "Container Diagram",
@@ -113,7 +115,8 @@ c4_container_diagram <- function(title = "Container Diagram",
 #' @param component List of component elements
 #' @param external_system List of external system elements
 #' @param relationships List of relationships between elements
-#' @param theme Character string for color theme
+#' @param theme Character string for color theme or a c4_theme object
+#' @param groups List of group/boundary objects (optional)
 #' @return A DiagrammeR graph object
 #' @export
 c4_component_diagram <- function(title = "Component Diagram",
