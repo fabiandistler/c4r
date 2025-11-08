@@ -10,6 +10,8 @@ check_list(x, arg = rlang::caller_arg(x), call = rlang::caller_env())
 \item{x}{Input to check}
 
 \item{arg}{Argument name for error message}
+
+\item{call}{Calling environment for error reporting}
 }
 \description{
 Check if input is a list

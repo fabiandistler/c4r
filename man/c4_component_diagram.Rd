@@ -9,7 +9,8 @@ c4_component_diagram(
   component = list(),
   external_system = list(),
   relationships = list(),
-  theme = "default"
+  theme = "default",
+  groups = list()
 )
 }
 \arguments{
@@ -21,7 +22,9 @@ c4_component_diagram(
 
 \item{relationships}{List of relationships between elements}
 
-\item{theme}{Character string for color theme}
+\item{theme}{Character string for color theme or a c4_theme object}
+
+\item{groups}{List of group/boundary objects (optional)}
 }
 \value{
 A DiagrammeR graph object

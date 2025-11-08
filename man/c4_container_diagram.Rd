@@ -10,7 +10,8 @@ c4_container_diagram(
   container = list(),
   external_system = list(),
   relationships = list(),
-  theme = "default"
+  theme = "default",
+  groups = list()
 )
 }
 \arguments{
@@ -24,7 +25,9 @@ c4_container_diagram(
 
 \item{relationships}{List of relationships between elements}
 
-\item{theme}{Character string for color theme}
+\item{theme}{Character string for color theme or a c4_theme object}
+
+\item{groups}{List of group/boundary objects (optional)}
 }
 \value{
 A DiagrammeR graph object

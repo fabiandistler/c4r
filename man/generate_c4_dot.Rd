@@ -4,7 +4,7 @@
 \alias{generate_c4_dot}
 \title{Generate DOT notation for C4 diagram}
 \usage{
-generate_c4_dot(title, nodes, edges, theme, level)
+generate_c4_dot(title, nodes, edges, theme, level, groups = list())
 }
 \arguments{
 \item{title}{Character string for diagram title}
@@ -13,9 +13,11 @@ generate_c4_dot(title, nodes, edges, theme, level)
 
 \item{edges}{Data frame of edges}
 
-\item{theme}{Character string for theme}
+\item{theme}{Character string for theme or c4_theme object}
 
 \item{level}{Character string for diagram level}
+
+\item{groups}{List of group objects (optional)}
 }
 \value{
 Character string with DOT notation

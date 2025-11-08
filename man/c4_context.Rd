@@ -10,7 +10,8 @@ c4_context(
   system = list(),
   external_system = list(),
   relationships = list(),
-  theme = "default"
+  theme = "default",
+  groups = list()
 )
 }
 \arguments{
@@ -24,7 +25,9 @@ c4_context(
 
 \item{relationships}{List of relationships between elements}
 
-\item{theme}{Character string for color theme ("default", "dark", "blue")}
+\item{theme}{Character string for color theme ("default", "dark", "blue") or a c4_theme object}
+
+\item{groups}{List of group/boundary objects (optional)}
 }
 \value{
 A DiagrammeR graph object
