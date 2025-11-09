@@ -11,7 +11,8 @@ c4_container_diagram(
   container = list(),
   external_system = list(),
   relationships = list(),
-  theme = "default"
+  theme = "default",
+  groups = list()
 )
 ```
 
@@ -39,7 +40,11 @@ c4_container_diagram(
 
 - theme:
 
-  Character string for color theme
+  Character string for color theme or a c4_theme object
+
+- groups:
+
+  List of group/boundary objects (optional)
 
 ## Value
 

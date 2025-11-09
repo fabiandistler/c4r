@@ -10,7 +10,8 @@ c4_component_diagram(
   component = list(),
   external_system = list(),
   relationships = list(),
-  theme = "default"
+  theme = "default",
+  groups = list()
 )
 ```
 
@@ -34,7 +35,11 @@ c4_component_diagram(
 
 - theme:
 
-  Character string for color theme
+  Character string for color theme or a c4_theme object
+
+- groups:
+
+  List of group/boundary objects (optional)
 
 ## Value
 

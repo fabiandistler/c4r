@@ -40,10 +40,13 @@ rels <- tribble(
 ) %>% c4_rels_from_tibble()
 ```
 
-**Functions:** - `c4_persons_from_tibble()` -
-`c4_systems_from_tibble()` - `c4_containers_from_tibble()` -
-`c4_components_from_tibble()` - `c4_external_systems_from_tibble()` -
-`c4_rels_from_tibble()`
+**Functions:** -
+[`c4_persons_from_tibble()`](https://fabiandistler.github.io/c4r/reference/c4_persons_from_tibble.md) -
+[`c4_systems_from_tibble()`](https://fabiandistler.github.io/c4r/reference/c4_systems_from_tibble.md) -
+[`c4_containers_from_tibble()`](https://fabiandistler.github.io/c4r/reference/c4_containers_from_tibble.md) -
+[`c4_components_from_tibble()`](https://fabiandistler.github.io/c4r/reference/c4_components_from_tibble.md) -
+[`c4_external_systems_from_tibble()`](https://fabiandistler.github.io/c4r/reference/c4_external_systems_from_tibble.md) -
+[`c4_rels_from_tibble()`](https://fabiandistler.github.io/c4r/reference/c4_rels_from_tibble.md)
 
 ### 2. Validation & Debugging Tools ✅
 
@@ -132,12 +135,26 @@ diagram <- c4_builder(title = "My System", theme = "blue") %>%
 print(diagram)
 ```
 
-**Builder Functions:** - `c4_builder()` - Initialize builder -
-`set_title()`, `set_theme()` - Set properties - `add_person()`,
-`add_system()`, `add_container()`, `add_component()`,
-`add_external_system()` - Add elements - `add_relationship()` - Add
-relationships - `add_group()` - Add visual grouping - `build_context()`,
-`build_container()`, `build_component()` - Build diagram
+**Builder Functions:** -
+[`c4_builder()`](https://fabiandistler.github.io/c4r/reference/c4_builder.md) -
+Initialize builder -
+[`set_title()`](https://fabiandistler.github.io/c4r/reference/set_title.md),
+[`set_theme()`](https://fabiandistler.github.io/c4r/reference/set_theme.md) -
+Set properties -
+[`add_person()`](https://fabiandistler.github.io/c4r/reference/add_person.md),
+[`add_system()`](https://fabiandistler.github.io/c4r/reference/add_system.md),
+[`add_container()`](https://fabiandistler.github.io/c4r/reference/add_container.md),
+[`add_component()`](https://fabiandistler.github.io/c4r/reference/add_component.md),
+[`add_external_system()`](https://fabiandistler.github.io/c4r/reference/add_external_system.md) -
+Add elements -
+[`add_relationship()`](https://fabiandistler.github.io/c4r/reference/add_relationship.md) -
+Add relationships -
+[`add_group()`](https://fabiandistler.github.io/c4r/reference/add_group.md) -
+Add visual grouping -
+[`build_context()`](https://fabiandistler.github.io/c4r/reference/build_context.md),
+[`build_container()`](https://fabiandistler.github.io/c4r/reference/build_container.md),
+[`build_component()`](https://fabiandistler.github.io/c4r/reference/build_component.md) -
+Build diagram
 
 ### 5. Visual Grouping & Boundaries 📦
 
@@ -158,9 +175,13 @@ diagram <- c4_context(
 )
 ```
 
-**Group Functions:** - `c4_group()` - Create generic group -
-`c4_deployment_boundary()` - Deployment/infrastructure boundary -
-`c4_system_boundary()` - System boundary
+**Group Functions:** -
+[`c4_group()`](https://fabiandistler.github.io/c4r/reference/c4_group.md) -
+Create generic group -
+[`c4_deployment_boundary()`](https://fabiandistler.github.io/c4r/reference/c4_deployment_boundary.md) -
+Deployment/infrastructure boundary -
+[`c4_system_boundary()`](https://fabiandistler.github.io/c4r/reference/c4_system_boundary.md) -
+System boundary
 
 **Styles:** `"solid"`, `"dashed"`, `"dotted"`, `"bold"`
 

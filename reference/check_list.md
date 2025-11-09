@@ -17,3 +17,7 @@ check_list(x, arg = rlang::caller_arg(x), call = rlang::caller_env())
 - arg:
 
   Argument name for error message
+
+- call:
+
+  Calling environment for error reporting

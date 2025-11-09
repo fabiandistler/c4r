@@ -3,7 +3,7 @@ pkgdown: 2.2.0
 pkgdown_sha: ~
 articles:
   getting-started: getting-started.html
-last_built: 2025-11-08T06:56Z
+last_built: 2025-11-09T08:08Z
 urls:
   reference: https://fabiandistler.github.io/c4r/reference
   article: https://fabiandistler.github.io/c4r/articles

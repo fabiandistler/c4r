@@ -11,7 +11,8 @@ c4_context(
   system = list(),
   external_system = list(),
   relationships = list(),
-  theme = "default"
+  theme = "default",
+  groups = list()
 )
 ```
 
@@ -39,7 +40,12 @@ c4_context(
 
 - theme:
 
-  Character string for color theme ("default", "dark", "blue")
+  Character string for color theme ("default", "dark", "blue") or a
+  c4_theme object
+
+- groups:
+
+  List of group/boundary objects (optional)
 
 ## Value
 

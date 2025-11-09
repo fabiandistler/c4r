@@ -39,14 +39,14 @@
 <div class="section level2">
 <h2 id="quick-start-with-new-features">Quick Start with New Features<a class="anchor" aria-label="anchor" href="#quick-start-with-new-features"></a></h2>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/fabiandistler/c4r" class="external-link">c4r</a></span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://fabiandistler.github.io/c4r/">c4r</a></span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Use the fluent builder interface</span></span>
-<span><span class="va">diagram</span> <span class="op">&lt;-</span> <span class="fu">c4_builder</span><span class="op">(</span><span class="st">"My System"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
-<span>  <span class="fu">add_person</span><span class="op">(</span><span class="st">"user"</span>, <span class="st">"User"</span>, <span class="st">"Application user"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
-<span>  <span class="fu">add_system</span><span class="op">(</span><span class="st">"app"</span>, <span class="st">"Application"</span>, <span class="st">"Main system"</span>, <span class="st">"React"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
-<span>  <span class="fu">add_relationship</span><span class="op">(</span><span class="st">"user"</span>, <span class="st">"app"</span>, <span class="st">"Uses"</span>, <span class="st">"HTTPS"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
-<span>  <span class="fu">build_context</span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<span><span class="va">diagram</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/c4_builder.html">c4_builder</a></span><span class="op">(</span><span class="st">"My System"</span><span class="op">)</span> <span class="op"><a href="reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="reference/add_person.html">add_person</a></span><span class="op">(</span><span class="st">"user"</span>, <span class="st">"User"</span>, <span class="st">"Application user"</span><span class="op">)</span> <span class="op"><a href="reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="reference/add_system.html">add_system</a></span><span class="op">(</span><span class="st">"app"</span>, <span class="st">"Application"</span>, <span class="st">"Main system"</span>, <span class="st">"React"</span><span class="op">)</span> <span class="op"><a href="reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="reference/add_relationship.html">add_relationship</a></span><span class="op">(</span><span class="st">"user"</span>, <span class="st">"app"</span>, <span class="st">"Uses"</span>, <span class="st">"HTTPS"</span><span class="op">)</span> <span class="op"><a href="reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="reference/build_context.html">build_context</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="feature-overview">Feature Overview<a class="anchor" aria-label="anchor" href="#feature-overview"></a></h2>
@@ -61,45 +61,45 @@
 <span>  <span class="op">~</span><span class="va">id</span>,     <span class="op">~</span><span class="va">label</span>,    <span class="op">~</span><span class="va">description</span>,</span>
 <span>  <span class="st">"user1"</span>, <span class="st">"User 1"</span>,  <span class="st">"First user"</span>,</span>
 <span>  <span class="st">"user2"</span>, <span class="st">"User 2"</span>,  <span class="st">"Second user"</span></span>
-<span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu">c4_persons_from_tibble</span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="op">)</span> <span class="op"><a href="reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="reference/c4_persons_from_tibble.html">c4_persons_from_tibble</a></span><span class="op">(</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Create relationships from tibble</span></span>
 <span><span class="va">rels</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tribble.html" class="external-link">tribble</a></span><span class="op">(</span></span>
 <span>  <span class="op">~</span><span class="va">from</span>,  <span class="op">~</span><span class="va">to</span>,   <span class="op">~</span><span class="va">label</span>,   <span class="op">~</span><span class="va">technology</span>,</span>
 <span>  <span class="st">"user"</span>, <span class="st">"app"</span>, <span class="st">"Uses"</span>,   <span class="st">"HTTPS"</span>,</span>
 <span>  <span class="st">"app"</span>,  <span class="st">"db"</span>,  <span class="st">"Reads"</span>,  <span class="st">"SQL"</span></span>
-<span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu">c4_rels_from_tibble</span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<p><strong>Functions:</strong> - <code>c4_persons_from_tibble()</code> - <code>c4_systems_from_tibble()</code> - <code>c4_containers_from_tibble()</code> - <code>c4_components_from_tibble()</code> - <code>c4_external_systems_from_tibble()</code> - <code>c4_rels_from_tibble()</code></p>
+<span><span class="op">)</span> <span class="op"><a href="reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="reference/c4_rels_from_tibble.html">c4_rels_from_tibble</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<p><strong>Functions:</strong> - <code><a href="reference/c4_persons_from_tibble.html">c4_persons_from_tibble()</a></code> - <code><a href="reference/c4_systems_from_tibble.html">c4_systems_from_tibble()</a></code> - <code><a href="reference/c4_containers_from_tibble.html">c4_containers_from_tibble()</a></code> - <code><a href="reference/c4_components_from_tibble.html">c4_components_from_tibble()</a></code> - <code><a href="reference/c4_external_systems_from_tibble.html">c4_external_systems_from_tibble()</a></code> - <code><a href="reference/c4_rels_from_tibble.html">c4_rels_from_tibble()</a></code></p>
 </div>
 <div class="section level3">
 <h3 id="id_2-validation--debugging-tools-">2. Validation &amp; Debugging Tools ✅<a class="anchor" aria-label="anchor" href="#id_2-validation--debugging-tools-"></a></h3>
 <p>Catch errors before creating diagrams:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Validate elements and relationships</span></span>
-<span><span class="fu">check_c4_elements</span><span class="op">(</span></span>
+<span><span class="fu"><a href="reference/check_c4_elements.html">check_c4_elements</a></span><span class="op">(</span></span>
 <span>  person <span class="op">=</span> <span class="va">my_persons</span>,</span>
 <span>  system <span class="op">=</span> <span class="va">my_systems</span>,</span>
 <span>  relationships <span class="op">=</span> <span class="va">my_rels</span></span>
 <span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Get summary statistics</span></span>
-<span><span class="va">stats</span> <span class="op">&lt;-</span> <span class="fu">c4_summary</span><span class="op">(</span></span>
+<span><span class="va">stats</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/c4_summary.html">c4_summary</a></span><span class="op">(</span></span>
 <span>  elements <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>person <span class="op">=</span> <span class="va">my_persons</span>, system <span class="op">=</span> <span class="va">my_systems</span><span class="op">)</span>,</span>
 <span>  relationships <span class="op">=</span> <span class="va">my_rels</span></span>
 <span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Find orphaned elements</span></span>
-<span><span class="va">orphaned</span> <span class="op">&lt;-</span> <span class="fu">c4_find_orphaned</span><span class="op">(</span><span class="va">elements</span>, <span class="va">relationships</span><span class="op">)</span></span>
+<span><span class="va">orphaned</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/c4_find_orphaned.html">c4_find_orphaned</a></span><span class="op">(</span><span class="va">elements</span>, <span class="va">relationships</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Find invalid relationships</span></span>
-<span><span class="va">invalid</span> <span class="op">&lt;-</span> <span class="fu">c4_find_invalid_rels</span><span class="op">(</span><span class="va">elements</span>, <span class="va">relationships</span><span class="op">)</span></span></code></pre></div>
+<span><span class="va">invalid</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/c4_find_invalid_rels.html">c4_find_invalid_rels</a></span><span class="op">(</span><span class="va">elements</span>, <span class="va">relationships</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level3">
 <h3 id="id_3-custom-themes-">3. Custom Themes 🎨<a class="anchor" aria-label="anchor" href="#id_3-custom-themes-"></a></h3>
 <p>Create and customize color themes:</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Create a custom theme</span></span>
-<span><span class="va">my_theme</span> <span class="op">&lt;-</span> <span class="fu">c4_theme</span><span class="op">(</span></span>
+<span><span class="va">my_theme</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/c4_theme.html">c4_theme</a></span><span class="op">(</span></span>
 <span>  name <span class="op">=</span> <span class="st">"corporate"</span>,</span>
 <span>  bg <span class="op">=</span> <span class="st">"#FFFFFF"</span>,</span>
 <span>  person <span class="op">=</span> <span class="st">"#E74C3C"</span>,</span>
@@ -111,47 +111,47 @@
 <span><span class="va">diagram</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/c4_context.html">c4_context</a></span><span class="op">(</span><span class="va">...</span>, theme <span class="op">=</span> <span class="va">my_theme</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Modify existing theme</span></span>
-<span><span class="va">dark_blue</span> <span class="op">&lt;-</span> <span class="fu">c4_modify_theme</span><span class="op">(</span><span class="st">"dark"</span>,</span>
+<span><span class="va">dark_blue</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/c4_modify_theme.html">c4_modify_theme</a></span><span class="op">(</span><span class="st">"dark"</span>,</span>
 <span>                              system <span class="op">=</span> <span class="st">"#1E3A8A"</span>,</span>
 <span>                              edge <span class="op">=</span> <span class="st">"#60A5FA"</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Save and load themes</span></span>
-<span><span class="fu">c4_save_theme</span><span class="op">(</span><span class="va">my_theme</span>, <span class="st">"~/.c4r/themes/corporate.rds"</span><span class="op">)</span></span>
-<span><span class="va">loaded_theme</span> <span class="op">&lt;-</span> <span class="fu">c4_load_theme</span><span class="op">(</span><span class="st">"~/.c4r/themes/corporate.rds"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="reference/c4_save_theme.html">c4_save_theme</a></span><span class="op">(</span><span class="va">my_theme</span>, <span class="st">"~/.c4r/themes/corporate.rds"</span><span class="op">)</span></span>
+<span><span class="va">loaded_theme</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/c4_load_theme.html">c4_load_theme</a></span><span class="op">(</span><span class="st">"~/.c4r/themes/corporate.rds"</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Preview theme colors</span></span>
-<span><span class="fu">c4_preview_theme</span><span class="op">(</span><span class="va">my_theme</span><span class="op">)</span></span>
+<span><span class="fu"><a href="reference/c4_preview_theme.html">c4_preview_theme</a></span><span class="op">(</span><span class="va">my_theme</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># List built-in themes</span></span>
-<span><span class="fu">c4_list_themes</span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<span><span class="fu"><a href="reference/c4_list_themes.html">c4_list_themes</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level3">
 <h3 id="id_4-fluent-builder-interface-️">4. Fluent Builder Interface ⛓️<a class="anchor" aria-label="anchor" href="#id_4-fluent-builder-interface-%EF%B8%8F"></a></h3>
 <p>Chainable API for building diagrams:</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">diagram</span> <span class="op">&lt;-</span> <span class="fu">c4_builder</span><span class="op">(</span>title <span class="op">=</span> <span class="st">"My System"</span>, theme <span class="op">=</span> <span class="st">"blue"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
+<code class="sourceCode R"><span><span class="va">diagram</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/c4_builder.html">c4_builder</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"My System"</span>, theme <span class="op">=</span> <span class="st">"blue"</span><span class="op">)</span> <span class="op"><a href="reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="co"># Add elements</span></span>
-<span>  <span class="fu">add_person</span><span class="op">(</span><span class="st">"user"</span>, <span class="st">"User"</span>, <span class="st">"Application user"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
-<span>  <span class="fu">add_system</span><span class="op">(</span><span class="st">"app"</span>, <span class="st">"App"</span>, <span class="st">"Main application"</span>, <span class="st">"React"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
-<span>  <span class="fu">add_container</span><span class="op">(</span><span class="st">"api"</span>, <span class="st">"API"</span>, <span class="st">"Backend API"</span>, <span class="st">"Node.js"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
-<span>  <span class="fu">add_external_system</span><span class="op">(</span><span class="st">"payment"</span>, <span class="st">"Payment"</span>, <span class="st">"Stripe"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="reference/add_person.html">add_person</a></span><span class="op">(</span><span class="st">"user"</span>, <span class="st">"User"</span>, <span class="st">"Application user"</span><span class="op">)</span> <span class="op"><a href="reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="reference/add_system.html">add_system</a></span><span class="op">(</span><span class="st">"app"</span>, <span class="st">"App"</span>, <span class="st">"Main application"</span>, <span class="st">"React"</span><span class="op">)</span> <span class="op"><a href="reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="reference/add_container.html">add_container</a></span><span class="op">(</span><span class="st">"api"</span>, <span class="st">"API"</span>, <span class="st">"Backend API"</span>, <span class="st">"Node.js"</span><span class="op">)</span> <span class="op"><a href="reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="reference/add_external_system.html">add_external_system</a></span><span class="op">(</span><span class="st">"payment"</span>, <span class="st">"Payment"</span>, <span class="st">"Stripe"</span><span class="op">)</span> <span class="op"><a href="reference/pipe.html">%&gt;%</a></span></span>
 <span></span>
 <span>  <span class="co"># Add relationships</span></span>
-<span>  <span class="fu">add_relationship</span><span class="op">(</span><span class="st">"user"</span>, <span class="st">"app"</span>, <span class="st">"Uses"</span>, <span class="st">"HTTPS"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
-<span>  <span class="fu">add_relationship</span><span class="op">(</span><span class="st">"app"</span>, <span class="st">"api"</span>, <span class="st">"Calls"</span>, <span class="st">"REST"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
-<span>  <span class="fu">add_relationship</span><span class="op">(</span><span class="st">"api"</span>, <span class="st">"payment"</span>, <span class="st">"Processes"</span>, <span class="st">"API"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="reference/add_relationship.html">add_relationship</a></span><span class="op">(</span><span class="st">"user"</span>, <span class="st">"app"</span>, <span class="st">"Uses"</span>, <span class="st">"HTTPS"</span><span class="op">)</span> <span class="op"><a href="reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="reference/add_relationship.html">add_relationship</a></span><span class="op">(</span><span class="st">"app"</span>, <span class="st">"api"</span>, <span class="st">"Calls"</span>, <span class="st">"REST"</span><span class="op">)</span> <span class="op"><a href="reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="reference/add_relationship.html">add_relationship</a></span><span class="op">(</span><span class="st">"api"</span>, <span class="st">"payment"</span>, <span class="st">"Processes"</span>, <span class="st">"API"</span><span class="op">)</span> <span class="op"><a href="reference/pipe.html">%&gt;%</a></span></span>
 <span></span>
 <span>  <span class="co"># Add groups</span></span>
-<span>  <span class="fu">add_group</span><span class="op">(</span><span class="st">"backend"</span>, <span class="st">"Backend"</span>,</span>
+<span>  <span class="fu"><a href="reference/add_group.html">add_group</a></span><span class="op">(</span><span class="st">"backend"</span>, <span class="st">"Backend"</span>,</span>
 <span>            members <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"api"</span><span class="op">)</span>,</span>
-<span>            style <span class="op">=</span> <span class="st">"dashed"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
+<span>            style <span class="op">=</span> <span class="st">"dashed"</span><span class="op">)</span> <span class="op"><a href="reference/pipe.html">%&gt;%</a></span></span>
 <span></span>
 <span>  <span class="co"># Build diagram</span></span>
-<span>  <span class="fu">build_context</span><span class="op">(</span><span class="op">)</span>  <span class="co"># or build_container() or build_component()</span></span>
+<span>  <span class="fu"><a href="reference/build_context.html">build_context</a></span><span class="op">(</span><span class="op">)</span>  <span class="co"># or build_container() or build_component()</span></span>
 <span></span>
 <span><span class="co"># Print builder status</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">diagram</span><span class="op">)</span></span></code></pre></div>
-<p><strong>Builder Functions:</strong> - <code>c4_builder()</code> - Initialize builder - <code>set_title()</code>, <code>set_theme()</code> - Set properties - <code>add_person()</code>, <code>add_system()</code>, <code>add_container()</code>, <code>add_component()</code>, <code>add_external_system()</code> - Add elements - <code>add_relationship()</code> - Add relationships - <code>add_group()</code> - Add visual grouping - <code>build_context()</code>, <code>build_container()</code>, <code>build_component()</code> - Build diagram</p>
+<p><strong>Builder Functions:</strong> - <code><a href="reference/c4_builder.html">c4_builder()</a></code> - Initialize builder - <code><a href="reference/set_title.html">set_title()</a></code>, <code><a href="reference/set_theme.html">set_theme()</a></code> - Set properties - <code><a href="reference/add_person.html">add_person()</a></code>, <code><a href="reference/add_system.html">add_system()</a></code>, <code><a href="reference/add_container.html">add_container()</a></code>, <code><a href="reference/add_component.html">add_component()</a></code>, <code><a href="reference/add_external_system.html">add_external_system()</a></code> - Add elements - <code><a href="reference/add_relationship.html">add_relationship()</a></code> - Add relationships - <code><a href="reference/add_group.html">add_group()</a></code> - Add visual grouping - <code><a href="reference/build_context.html">build_context()</a></code>, <code><a href="reference/build_container.html">build_container()</a></code>, <code><a href="reference/build_component.html">build_component()</a></code> - Build diagram</p>
 </div>
 <div class="section level3">
 <h3 id="id_5-visual-grouping--boundaries-">5. Visual Grouping &amp; Boundaries 📦<a class="anchor" aria-label="anchor" href="#id_5-visual-grouping--boundaries-"></a></h3>
@@ -160,16 +160,16 @@
 <code class="sourceCode R"><span><span class="va">diagram</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/c4_context.html">c4_context</a></span><span class="op">(</span></span>
 <span>  <span class="va">...</span>,</span>
 <span>  groups <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
-<span>    <span class="fu">c4_group</span><span class="op">(</span><span class="st">"cloud"</span>, <span class="st">"Cloud Platform"</span>,</span>
+<span>    <span class="fu"><a href="reference/c4_group.html">c4_group</a></span><span class="op">(</span><span class="st">"cloud"</span>, <span class="st">"Cloud Platform"</span>,</span>
 <span>             members <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"app"</span>, <span class="st">"db"</span>, <span class="st">"cache"</span><span class="op">)</span>,</span>
 <span>             style <span class="op">=</span> <span class="st">"dashed"</span><span class="op">)</span>,</span>
-<span>    <span class="fu">c4_deployment_boundary</span><span class="op">(</span><span class="st">"aws"</span>, <span class="st">"AWS"</span>,</span>
+<span>    <span class="fu"><a href="reference/c4_deployment_boundary.html">c4_deployment_boundary</a></span><span class="op">(</span><span class="st">"aws"</span>, <span class="st">"AWS"</span>,</span>
 <span>                          members <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"app"</span>, <span class="st">"db"</span><span class="op">)</span><span class="op">)</span>,</span>
-<span>    <span class="fu">c4_system_boundary</span><span class="op">(</span><span class="st">"core"</span>, <span class="st">"Core System"</span>,</span>
+<span>    <span class="fu"><a href="reference/c4_system_boundary.html">c4_system_boundary</a></span><span class="op">(</span><span class="st">"core"</span>, <span class="st">"Core System"</span>,</span>
 <span>                      members <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"app"</span><span class="op">)</span><span class="op">)</span></span>
 <span>  <span class="op">)</span></span>
 <span><span class="op">)</span></span></code></pre></div>
-<p><strong>Group Functions:</strong> - <code>c4_group()</code> - Create generic group - <code>c4_deployment_boundary()</code> - Deployment/infrastructure boundary - <code>c4_system_boundary()</code> - System boundary</p>
+<p><strong>Group Functions:</strong> - <code><a href="reference/c4_group.html">c4_group()</a></code> - Create generic group - <code><a href="reference/c4_deployment_boundary.html">c4_deployment_boundary()</a></code> - Deployment/infrastructure boundary - <code><a href="reference/c4_system_boundary.html">c4_system_boundary()</a></code> - System boundary</p>
 <p><strong>Styles:</strong> <code>"solid"</code>, <code>"dashed"</code>, <code>"dotted"</code>, <code>"bold"</code></p>
 </div>
 <div class="section level3">
@@ -177,18 +177,18 @@
 <p>Different relationship styles and types:</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Synchronous relationship</span></span>
-<span><span class="va">rel1</span> <span class="op">&lt;-</span> <span class="fu">c4_rel_advanced</span><span class="op">(</span><span class="st">"api"</span>, <span class="st">"db"</span>, <span class="st">"Queries"</span>, <span class="st">"SQL"</span>,</span>
+<span><span class="va">rel1</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/c4_rel_advanced.html">c4_rel_advanced</a></span><span class="op">(</span><span class="st">"api"</span>, <span class="st">"db"</span>, <span class="st">"Queries"</span>, <span class="st">"SQL"</span>,</span>
 <span>                        type <span class="op">=</span> <span class="st">"sync"</span>, style <span class="op">=</span> <span class="st">"solid"</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Asynchronous relationship</span></span>
-<span><span class="va">rel2</span> <span class="op">&lt;-</span> <span class="fu">c4_rel_advanced</span><span class="op">(</span><span class="st">"api"</span>, <span class="st">"queue"</span>, <span class="st">"Publishes"</span>, <span class="st">"AMQP"</span>,</span>
+<span><span class="va">rel2</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/c4_rel_advanced.html">c4_rel_advanced</a></span><span class="op">(</span><span class="st">"api"</span>, <span class="st">"queue"</span>, <span class="st">"Publishes"</span>, <span class="st">"AMQP"</span>,</span>
 <span>                        type <span class="op">=</span> <span class="st">"async"</span>, style <span class="op">=</span> <span class="st">"dashed"</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Bidirectional relationship</span></span>
-<span><span class="va">rel3</span> <span class="op">&lt;-</span> <span class="fu">c4_rel_bidirectional</span><span class="op">(</span><span class="st">"service1"</span>, <span class="st">"service2"</span>, <span class="st">"Syncs"</span>, <span class="st">"gRPC"</span><span class="op">)</span></span>
+<span><span class="va">rel3</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/c4_rel_bidirectional.html">c4_rel_bidirectional</a></span><span class="op">(</span><span class="st">"service1"</span>, <span class="st">"service2"</span>, <span class="st">"Syncs"</span>, <span class="st">"gRPC"</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Or use convenience function</span></span>
-<span><span class="va">rel4</span> <span class="op">&lt;-</span> <span class="fu">c4_rel_async</span><span class="op">(</span><span class="st">"worker"</span>, <span class="st">"queue"</span>, <span class="st">"Subscribes"</span>, <span class="st">"RabbitMQ"</span><span class="op">)</span></span></code></pre></div>
+<span><span class="va">rel4</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/c4_rel_async.html">c4_rel_async</a></span><span class="op">(</span><span class="st">"worker"</span>, <span class="st">"queue"</span>, <span class="st">"Subscribes"</span>, <span class="st">"RabbitMQ"</span><span class="op">)</span></span></code></pre></div>
 <p><strong>Types:</strong> <code>"sync"</code>, <code>"async"</code>, <code>"request-response"</code> <strong>Styles:</strong> <code>"solid"</code>, <code>"dashed"</code>, <code>"dotted"</code> <strong>Directions:</strong> <code>"forward"</code>, <code>"back"</code>, <code>"both"</code>, <code>"none"</code></p>
 </div>
 <div class="section level3">
@@ -196,25 +196,25 @@
 <p>Export diagrams to PNG, SVG, PDF, HTML:</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Export to PNG</span></span>
-<span><span class="fu">export_c4</span><span class="op">(</span><span class="va">diagram</span>, <span class="st">"architecture"</span>, format <span class="op">=</span> <span class="st">"png"</span>, width <span class="op">=</span> <span class="fl">1200</span>, height <span class="op">=</span> <span class="fl">800</span>, dpi <span class="op">=</span> <span class="fl">300</span><span class="op">)</span></span>
+<span><span class="fu"><a href="reference/export_c4.html">export_c4</a></span><span class="op">(</span><span class="va">diagram</span>, <span class="st">"architecture"</span>, format <span class="op">=</span> <span class="st">"png"</span>, width <span class="op">=</span> <span class="fl">1200</span>, height <span class="op">=</span> <span class="fl">800</span>, dpi <span class="op">=</span> <span class="fl">300</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Export to SVG</span></span>
-<span><span class="fu">export_c4</span><span class="op">(</span><span class="va">diagram</span>, <span class="st">"architecture"</span>, format <span class="op">=</span> <span class="st">"svg"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="reference/export_c4.html">export_c4</a></span><span class="op">(</span><span class="va">diagram</span>, <span class="st">"architecture"</span>, format <span class="op">=</span> <span class="st">"svg"</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Export to PDF</span></span>
-<span><span class="fu">export_c4</span><span class="op">(</span><span class="va">diagram</span>, <span class="st">"architecture"</span>, format <span class="op">=</span> <span class="st">"pdf"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="reference/export_c4.html">export_c4</a></span><span class="op">(</span><span class="va">diagram</span>, <span class="st">"architecture"</span>, format <span class="op">=</span> <span class="st">"pdf"</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Export to HTML</span></span>
-<span><span class="fu">export_c4</span><span class="op">(</span><span class="va">diagram</span>, <span class="st">"architecture"</span>, format <span class="op">=</span> <span class="st">"html"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="reference/export_c4.html">export_c4</a></span><span class="op">(</span><span class="va">diagram</span>, <span class="st">"architecture"</span>, format <span class="op">=</span> <span class="st">"html"</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Export to multiple formats at once</span></span>
-<span><span class="fu">export_c4_all</span><span class="op">(</span><span class="va">diagram</span>, <span class="st">"architecture"</span>, formats <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"png"</span>, <span class="st">"svg"</span>, <span class="st">"pdf"</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="fu"><a href="reference/export_c4_all.html">export_c4_all</a></span><span class="op">(</span><span class="va">diagram</span>, <span class="st">"architecture"</span>, formats <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"png"</span>, <span class="st">"svg"</span>, <span class="st">"pdf"</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Export DOT notation</span></span>
-<span><span class="fu">export_c4_dot</span><span class="op">(</span><span class="va">diagram</span>, <span class="st">"architecture.dot"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="reference/export_c4_dot.html">export_c4_dot</a></span><span class="op">(</span><span class="va">diagram</span>, <span class="st">"architecture.dot"</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Get DOT code</span></span>
-<span><span class="va">dot_code</span> <span class="op">&lt;-</span> <span class="fu">c4_get_dot</span><span class="op">(</span><span class="va">diagram</span><span class="op">)</span></span></code></pre></div>
+<span><span class="va">dot_code</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/c4_get_dot.html">c4_get_dot</a></span><span class="op">(</span><span class="va">diagram</span><span class="op">)</span></span></code></pre></div>
 <p><strong>Note:</strong> PNG, SVG, and PDF export require <code>DiagrammeRsvg</code> and <code>rsvg</code> packages.</p>
 </div>
 <div class="section level3">
@@ -222,45 +222,45 @@
 <p>Quick start with common patterns:</p>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># List available templates</span></span>
-<span><span class="fu">c4_list_templates</span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="fu"><a href="reference/c4_list_templates.html">c4_list_templates</a></span><span class="op">(</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Microservices architecture</span></span>
-<span><span class="va">diagram</span> <span class="op">&lt;-</span> <span class="fu">c4_from_template</span><span class="op">(</span><span class="st">"microservices"</span>,</span>
+<span><span class="va">diagram</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/c4_from_template.html">c4_from_template</a></span><span class="op">(</span><span class="st">"microservices"</span>,</span>
 <span>  services <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"api"</span>, <span class="st">"auth"</span>, <span class="st">"users"</span>, <span class="st">"orders"</span><span class="op">)</span>,</span>
 <span>  databases <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"postgres"</span>, <span class="st">"redis"</span><span class="op">)</span>,</span>
 <span>  message_queue <span class="op">=</span> <span class="st">"rabbitmq"</span></span>
 <span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Monolithic architecture</span></span>
-<span><span class="va">diagram</span> <span class="op">&lt;-</span> <span class="fu">c4_from_template</span><span class="op">(</span><span class="st">"monolith"</span>,</span>
+<span><span class="va">diagram</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/c4_from_template.html">c4_from_template</a></span><span class="op">(</span><span class="st">"monolith"</span>,</span>
 <span>  app_name <span class="op">=</span> <span class="st">"My App"</span>,</span>
 <span>  database <span class="op">=</span> <span class="st">"postgres"</span>,</span>
 <span>  cache <span class="op">=</span> <span class="st">"redis"</span></span>
 <span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Three-tier architecture</span></span>
-<span><span class="va">diagram</span> <span class="op">&lt;-</span> <span class="fu">c4_from_template</span><span class="op">(</span><span class="st">"three_tier"</span>,</span>
+<span><span class="va">diagram</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/c4_from_template.html">c4_from_template</a></span><span class="op">(</span><span class="st">"three_tier"</span>,</span>
 <span>  web_tech <span class="op">=</span> <span class="st">"React"</span>,</span>
 <span>  app_tech <span class="op">=</span> <span class="st">"Spring Boot"</span>,</span>
 <span>  db_tech <span class="op">=</span> <span class="st">"MySQL"</span></span>
 <span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Serverless architecture</span></span>
-<span><span class="va">diagram</span> <span class="op">&lt;-</span> <span class="fu">c4_from_template</span><span class="op">(</span><span class="st">"serverless"</span>,</span>
+<span><span class="va">diagram</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/c4_from_template.html">c4_from_template</a></span><span class="op">(</span><span class="st">"serverless"</span>,</span>
 <span>  functions <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"api"</span>, <span class="st">"processor"</span><span class="op">)</span>,</span>
 <span>  storage <span class="op">=</span> <span class="cn">TRUE</span>,</span>
 <span>  database <span class="op">=</span> <span class="cn">TRUE</span></span>
 <span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Data pipeline</span></span>
-<span><span class="va">diagram</span> <span class="op">&lt;-</span> <span class="fu">c4_from_template</span><span class="op">(</span><span class="st">"data_pipeline"</span>,</span>
+<span><span class="va">diagram</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/c4_from_template.html">c4_from_template</a></span><span class="op">(</span><span class="st">"data_pipeline"</span>,</span>
 <span>  sources <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"api"</span>, <span class="st">"files"</span><span class="op">)</span>,</span>
 <span>  processing <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"etl"</span><span class="op">)</span>,</span>
 <span>  storage <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"warehouse"</span><span class="op">)</span></span>
 <span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Save custom template</span></span>
-<span><span class="fu">c4_save_template</span><span class="op">(</span><span class="va">my_diagram</span>, <span class="st">"my_pattern"</span>, <span class="st">"~/templates/pattern.rds"</span>,</span>
+<span><span class="fu"><a href="reference/c4_save_template.html">c4_save_template</a></span><span class="op">(</span><span class="va">my_diagram</span>, <span class="st">"my_pattern"</span>, <span class="st">"~/templates/pattern.rds"</span>,</span>
 <span>                 parameters <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>num_services <span class="op">=</span> <span class="fl">3</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level3">
@@ -268,7 +268,7 @@
 <p>Export diagrams as R code or YAML:</p>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Generate R code</span></span>
-<span><span class="va">code</span> <span class="op">&lt;-</span> <span class="fu">diagram_to_code</span><span class="op">(</span></span>
+<span><span class="va">code</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/diagram_to_code.html">diagram_to_code</a></span><span class="op">(</span></span>
 <span>  elements <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>person <span class="op">=</span> <span class="va">my_persons</span>, system <span class="op">=</span> <span class="va">my_systems</span><span class="op">)</span>,</span>
 <span>  relationships <span class="op">=</span> <span class="va">my_rels</span>,</span>
 <span>  title <span class="op">=</span> <span class="st">"My System"</span>,</span>
@@ -280,17 +280,17 @@
 <span><span class="fu"><a href="https://rdrr.io/r/base/cat.html" class="external-link">cat</a></span><span class="op">(</span><span class="va">code</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Save to file</span></span>
-<span><span class="fu">save_code</span><span class="op">(</span><span class="va">code</span>, <span class="st">"diagram.R"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="reference/save_code.html">save_code</a></span><span class="op">(</span><span class="va">code</span>, <span class="st">"diagram.R"</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Export to YAML</span></span>
-<span><span class="fu">diagram_to_yaml</span><span class="op">(</span></span>
+<span><span class="fu"><a href="reference/diagram_to_yaml.html">diagram_to_yaml</a></span><span class="op">(</span></span>
 <span>  elements <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>person <span class="op">=</span> <span class="va">my_persons</span><span class="op">)</span>,</span>
 <span>  relationships <span class="op">=</span> <span class="va">my_rels</span>,</span>
 <span>  file <span class="op">=</span> <span class="st">"diagram.yaml"</span></span>
 <span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Import from YAML</span></span>
-<span><span class="va">imported</span> <span class="op">&lt;-</span> <span class="fu">diagram_from_yaml</span><span class="op">(</span><span class="st">"diagram.yaml"</span><span class="op">)</span></span></code></pre></div>
+<span><span class="va">imported</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/diagram_from_yaml.html">diagram_from_yaml</a></span><span class="op">(</span><span class="st">"diagram.yaml"</span><span class="op">)</span></span></code></pre></div>
 </div>
 </div>
 <div class="section level2">
@@ -318,25 +318,25 @@
 <h3 id="new-way">New Way<a class="anchor" aria-label="anchor" href="#new-way"></a></h3>
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># New: Tibble input + Builder</span></span>
-<span><span class="va">diagram</span> <span class="op">&lt;-</span> <span class="fu">c4_builder</span><span class="op">(</span><span class="st">"My System"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
+<span><span class="va">diagram</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/c4_builder.html">c4_builder</a></span><span class="op">(</span><span class="st">"My System"</span><span class="op">)</span> <span class="op"><a href="reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="co"># Add multiple persons at once from tibble</span></span>
 <span>  <span class="fu"><a href="https://tibble.tidyverse.org/reference/tribble.html" class="external-link">tribble</a></span><span class="op">(</span></span>
 <span>    <span class="op">~</span><span class="va">id</span>,     <span class="op">~</span><span class="va">label</span>,    <span class="op">~</span><span class="va">description</span>,</span>
 <span>    <span class="st">"user1"</span>, <span class="st">"User 1"</span>,  <span class="st">"First user"</span>,</span>
 <span>    <span class="st">"user2"</span>, <span class="st">"User 2"</span>,  <span class="st">"Second user"</span>,</span>
 <span>    <span class="st">"user3"</span>, <span class="st">"User 3"</span>,  <span class="st">"Third user"</span></span>
-<span>  <span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
-<span>  <span class="fu">c4_persons_from_tibble</span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
-<span>  <span class="op">{</span> <span class="fu"><a href="https://rdrr.io/r/base/funprog.html" class="external-link">Reduce</a></span><span class="op">(</span><span class="kw">function</span><span class="op">(</span><span class="va">b</span>, <span class="va">p</span><span class="op">)</span> <span class="fu">add_person</span><span class="op">(</span><span class="va">b</span>, <span class="va">p</span><span class="op">$</span><span class="va">id</span>, <span class="va">p</span><span class="op">$</span><span class="va">label</span>, <span class="va">p</span><span class="op">$</span><span class="va">description</span><span class="op">)</span>, <span class="va">.</span>, init <span class="op">=</span> <span class="va">.</span><span class="op">)</span> <span class="op">}</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
+<span>  <span class="op">)</span> <span class="op"><a href="reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="reference/c4_persons_from_tibble.html">c4_persons_from_tibble</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="op">{</span> <span class="fu"><a href="https://rdrr.io/r/base/funprog.html" class="external-link">Reduce</a></span><span class="op">(</span><span class="kw">function</span><span class="op">(</span><span class="va">b</span>, <span class="va">p</span><span class="op">)</span> <span class="fu"><a href="reference/add_person.html">add_person</a></span><span class="op">(</span><span class="va">b</span>, <span class="va">p</span><span class="op">$</span><span class="va">id</span>, <span class="va">p</span><span class="op">$</span><span class="va">label</span>, <span class="va">p</span><span class="op">$</span><span class="va">description</span><span class="op">)</span>, <span class="va">.</span>, init <span class="op">=</span> <span class="va">.</span><span class="op">)</span> <span class="op">}</span> <span class="op"><a href="reference/pipe.html">%&gt;%</a></span></span>
 <span></span>
-<span>  <span class="fu">add_system</span><span class="op">(</span><span class="st">"app"</span>, <span class="st">"App"</span>, <span class="st">"Application"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
-<span>  <span class="fu">add_relationship</span><span class="op">(</span><span class="st">"user1"</span>, <span class="st">"app"</span>, <span class="st">"Uses"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
-<span>  <span class="fu">add_relationship</span><span class="op">(</span><span class="st">"user2"</span>, <span class="st">"app"</span>, <span class="st">"Uses"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
-<span>  <span class="fu">add_relationship</span><span class="op">(</span><span class="st">"user3"</span>, <span class="st">"app"</span>, <span class="st">"Uses"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
-<span>  <span class="fu">build_context</span><span class="op">(</span><span class="op">)</span></span>
+<span>  <span class="fu"><a href="reference/add_system.html">add_system</a></span><span class="op">(</span><span class="st">"app"</span>, <span class="st">"App"</span>, <span class="st">"Application"</span><span class="op">)</span> <span class="op"><a href="reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="reference/add_relationship.html">add_relationship</a></span><span class="op">(</span><span class="st">"user1"</span>, <span class="st">"app"</span>, <span class="st">"Uses"</span><span class="op">)</span> <span class="op"><a href="reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="reference/add_relationship.html">add_relationship</a></span><span class="op">(</span><span class="st">"user2"</span>, <span class="st">"app"</span>, <span class="st">"Uses"</span><span class="op">)</span> <span class="op"><a href="reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="reference/add_relationship.html">add_relationship</a></span><span class="op">(</span><span class="st">"user3"</span>, <span class="st">"app"</span>, <span class="st">"Uses"</span><span class="op">)</span> <span class="op"><a href="reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="reference/build_context.html">build_context</a></span><span class="op">(</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Or even simpler with templates</span></span>
-<span><span class="va">diagram</span> <span class="op">&lt;-</span> <span class="fu">c4_from_template</span><span class="op">(</span><span class="st">"three_tier"</span><span class="op">)</span></span></code></pre></div>
+<span><span class="va">diagram</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/c4_from_template.html">c4_from_template</a></span><span class="op">(</span><span class="st">"three_tier"</span><span class="op">)</span></span></code></pre></div>
 </div>
 </div>
 <div class="section level2">

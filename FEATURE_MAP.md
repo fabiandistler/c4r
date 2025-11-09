@@ -991,10 +991,14 @@ diagram <- c4_from_database(
 #### Milestone 2: Validation & Export (v0.3.0)
 
 - ✅ **UX-3** `validate_c4_diagram()` function
-- ✅ **UX-3** `check_c4_elements()` function
+- ✅ **UX-3**
+  [`check_c4_elements()`](https://fabiandistler.github.io/c4r/reference/check_c4_elements.md)
+  function
 - ✅ **UX-3** [`summary()`](https://rdrr.io/r/base/summary.html) method
   for diagrams
-- ✅ **FEAT-3** `export_c4()` for PNG/SVG/PDF
+- ✅ **FEAT-3**
+  [`export_c4()`](https://fabiandistler.github.io/c4r/reference/export_c4.md)
+  for PNG/SVG/PDF
 - ✅ **UX-5** Enhanced error messages
 - 📖 **DOC** Troubleshooting guide
 
@@ -1033,7 +1037,9 @@ examples - Stable API ready for 1.0
 #### Milestone 6: Builder API (v0.7.0)
 
 - ✅ **UX-4** Fluent builder interface
-- ✅ **UX-4** `c4_builder()` with method chaining
+- ✅ **UX-4**
+  [`c4_builder()`](https://fabiandistler.github.io/c4r/reference/c4_builder.md)
+  with method chaining
 - ✅ **DEV-2** RStudio code snippets
 - 📖 **DOC** Builder pattern examples
 
@@ -1046,7 +1052,8 @@ examples - Stable API ready for 1.0
 
 #### Milestone 8: Code Generation (v0.9.0)
 
-- ✅ **FEAT-8** `diagram_to_code()`
+- ✅ **FEAT-8**
+  [`diagram_to_code()`](https://fabiandistler.github.io/c4r/reference/diagram_to_code.md)
 - ✅ **FEAT-8** YAML export
 - ✅ **FEAT-9** CSV/Excel import (basic)
 - 📖 **DOC** Workflow examples

@@ -29,3 +29,142 @@ Functions for creating diagram elements
   : Create an external system element for C4 diagrams
 - [`c4_rel()`](https://fabiandistler.github.io/c4r/reference/c4_rel.md)
   : Create a relationship for C4 diagrams
+
+## Advanced Relationships
+
+Functions for creating advanced relationship types
+
+- [`c4_rel_advanced()`](https://fabiandistler.github.io/c4r/reference/c4_rel_advanced.md)
+  : Create an advanced relationship with additional visual properties
+- [`c4_rel_async()`](https://fabiandistler.github.io/c4r/reference/c4_rel_async.md)
+  : Create an asynchronous relationship
+- [`c4_rel_bidirectional()`](https://fabiandistler.github.io/c4r/reference/c4_rel_bidirectional.md)
+  : Create a bidirectional relationship
+
+## Grouping and Boundaries
+
+Functions for organizing elements with groups and boundaries
+
+- [`c4_group()`](https://fabiandistler.github.io/c4r/reference/c4_group.md)
+  : Create a visual group/boundary for C4 diagrams
+- [`c4_system_boundary()`](https://fabiandistler.github.io/c4r/reference/c4_system_boundary.md)
+  : Create a system boundary group
+- [`c4_deployment_boundary()`](https://fabiandistler.github.io/c4r/reference/c4_deployment_boundary.md)
+  : Create a deployment boundary group
+
+## Builder API
+
+Fluent API for building diagrams programmatically
+
+- [`c4_builder()`](https://fabiandistler.github.io/c4r/reference/c4_builder.md)
+  : Create a C4 diagram builder
+- [`add_person()`](https://fabiandistler.github.io/c4r/reference/add_person.md)
+  : Add a person element to the builder
+- [`add_system()`](https://fabiandistler.github.io/c4r/reference/add_system.md)
+  : Add a system element to the builder
+- [`add_external_system()`](https://fabiandistler.github.io/c4r/reference/add_external_system.md)
+  : Add an external system element to the builder
+- [`add_container()`](https://fabiandistler.github.io/c4r/reference/add_container.md)
+  : Add a container element to the builder
+- [`add_component()`](https://fabiandistler.github.io/c4r/reference/add_component.md)
+  : Add a component element to the builder
+- [`add_group()`](https://fabiandistler.github.io/c4r/reference/add_group.md)
+  : Add a group/boundary to the builder
+- [`add_relationship()`](https://fabiandistler.github.io/c4r/reference/add_relationship.md)
+  : Add a relationship to the builder
+- [`build_context()`](https://fabiandistler.github.io/c4r/reference/build_context.md)
+  : Build a context diagram from the builder
+- [`build_container()`](https://fabiandistler.github.io/c4r/reference/build_container.md)
+  : Build a container diagram from the builder
+- [`build_component()`](https://fabiandistler.github.io/c4r/reference/build_component.md)
+  : Build a component diagram from the builder
+- [`set_theme()`](https://fabiandistler.github.io/c4r/reference/set_theme.md)
+  : Set the theme for the diagram
+- [`set_title()`](https://fabiandistler.github.io/c4r/reference/set_title.md)
+  : Set the title for the diagram
+
+## Tibble Input
+
+Functions for creating diagrams from tibble/data frame inputs
+
+- [`c4_persons_from_tibble()`](https://fabiandistler.github.io/c4r/reference/c4_persons_from_tibble.md)
+  : Create person elements from a tibble or data frame
+- [`c4_systems_from_tibble()`](https://fabiandistler.github.io/c4r/reference/c4_systems_from_tibble.md)
+  : Create system elements from a tibble or data frame
+- [`c4_external_systems_from_tibble()`](https://fabiandistler.github.io/c4r/reference/c4_external_systems_from_tibble.md)
+  : Create external system elements from a tibble or data frame
+- [`c4_containers_from_tibble()`](https://fabiandistler.github.io/c4r/reference/c4_containers_from_tibble.md)
+  : Create container elements from a tibble or data frame
+- [`c4_components_from_tibble()`](https://fabiandistler.github.io/c4r/reference/c4_components_from_tibble.md)
+  : Create component elements from a tibble or data frame
+- [`c4_rels_from_tibble()`](https://fabiandistler.github.io/c4r/reference/c4_rels_from_tibble.md)
+  : Create relationship elements from a tibble or data frame
+
+## Templates
+
+Functions for working with diagram templates
+
+- [`c4_from_template()`](https://fabiandistler.github.io/c4r/reference/c4_from_template.md)
+  : Create a diagram from a template
+- [`c4_list_templates()`](https://fabiandistler.github.io/c4r/reference/c4_list_templates.md)
+  : List available templates
+- [`c4_save_template()`](https://fabiandistler.github.io/c4r/reference/c4_save_template.md)
+  : Save a custom template
+
+## Themes
+
+Functions for customizing diagram appearance
+
+- [`c4_theme()`](https://fabiandistler.github.io/c4r/reference/c4_theme.md)
+  : Create a custom C4 theme
+- [`c4_list_themes()`](https://fabiandistler.github.io/c4r/reference/c4_list_themes.md)
+  : List all built-in themes
+- [`c4_load_theme()`](https://fabiandistler.github.io/c4r/reference/c4_load_theme.md)
+  : Load a custom theme from file
+- [`c4_modify_theme()`](https://fabiandistler.github.io/c4r/reference/c4_modify_theme.md)
+  : Modify an existing C4 theme
+- [`c4_preview_theme()`](https://fabiandistler.github.io/c4r/reference/c4_preview_theme.md)
+  : Preview a theme's colors
+- [`c4_save_theme()`](https://fabiandistler.github.io/c4r/reference/c4_save_theme.md)
+  : Save a custom theme for later use
+
+## Export
+
+Functions for exporting diagrams to various formats
+
+- [`export_c4()`](https://fabiandistler.github.io/c4r/reference/export_c4.md)
+  : Export C4 diagram to various formats
+- [`export_c4_all()`](https://fabiandistler.github.io/c4r/reference/export_c4_all.md)
+  : Export C4 diagram to multiple formats
+- [`export_c4_dot()`](https://fabiandistler.github.io/c4r/reference/export_c4_dot.md)
+  : Save DOT notation to file
+- [`c4_get_dot()`](https://fabiandistler.github.io/c4r/reference/c4_get_dot.md)
+  : Get DOT notation from a C4 diagram
+
+## YAML Import/Export
+
+Functions for working with YAML diagram definitions
+
+- [`diagram_from_yaml()`](https://fabiandistler.github.io/c4r/reference/diagram_from_yaml.md)
+  : Import diagram elements from YAML
+- [`diagram_to_yaml()`](https://fabiandistler.github.io/c4r/reference/diagram_to_yaml.md)
+  : Export diagram elements to YAML
+- [`diagram_to_code()`](https://fabiandistler.github.io/c4r/reference/diagram_to_code.md)
+  : Generate R code from diagram elements
+- [`save_code()`](https://fabiandistler.github.io/c4r/reference/save_code.md)
+  : Save generated code to file
+
+## Validation and Debugging
+
+Functions for validating diagrams and finding issues
+
+- [`validate_c4()`](https://fabiandistler.github.io/c4r/reference/validate_c4.md)
+  : Validate a C4 diagram for common issues
+- [`check_c4_elements()`](https://fabiandistler.github.io/c4r/reference/check_c4_elements.md)
+  : Check C4 elements for common issues
+- [`c4_summary()`](https://fabiandistler.github.io/c4r/reference/c4_summary.md)
+  : Get summary statistics for C4 diagram elements
+- [`c4_find_orphaned()`](https://fabiandistler.github.io/c4r/reference/c4_find_orphaned.md)
+  : Find unused elements (elements with no relationships)
+- [`c4_find_invalid_rels()`](https://fabiandistler.github.io/c4r/reference/c4_find_invalid_rels.md)
+  : Find relationships referencing non-existent elements

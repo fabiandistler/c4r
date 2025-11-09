@@ -9,6 +9,8 @@ DiagrammeR or other Graphviz-compatible tools.
 
 Useful links:
 
+- <https://fabiandistler.github.io/c4r/>
+
 - <https://github.com/fabiandistler/c4r>
 
 - Report bugs at <https://github.com/fabiandistler/c4r/issues>
