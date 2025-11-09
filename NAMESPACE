@@ -2,6 +2,7 @@
 
 S3method(print,c4_builder)
 S3method(print,c4_summary)
+export("%>%")
 export(add_component)
 export(add_container)
 export(add_external_system)
@@ -59,3 +60,4 @@ export(save_code)
 export(set_theme)
 export(set_title)
 export(validate_c4)
+importFrom(magrittr,"%>%")

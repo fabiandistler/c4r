@@ -14,3 +14,4 @@
 \description{
 Print method for c4_summary
 }
+\keyword{internal}

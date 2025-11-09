@@ -240,6 +240,7 @@ check_builder <- function(builder) {
 #'
 #' @param x A c4_builder object
 #' @param ... Additional arguments (unused)
+#' @keywords internal
 #' @export
 print.c4_builder <- function(x, ...) {
   cli::cli_h2("C4 Builder")

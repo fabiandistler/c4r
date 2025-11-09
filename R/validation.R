@@ -4,7 +4,6 @@
 #'
 #' Checks for orphaned nodes, missing elements in relationships, duplicate IDs, etc.
 #'
-#' @param diagram A C4 diagram object (context, container, or component)
 #' @param elements Named list with person, system/container/component, external_system
 #' @param relationships List of relationship elements
 #' @return Invisible TRUE if valid, otherwise prints issues and returns FALSE
@@ -158,6 +157,7 @@ c4_summary <- function(elements, relationships = list()) {
 #' Print method for c4_summary
 #' @param x A c4_summary object
 #' @param ... Additional arguments (unused)
+#' @keywords internal
 #' @export
 print.c4_summary <- function(x, ...) {
   cli::cli_h2("C4 Diagram Summary")

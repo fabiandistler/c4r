@@ -10,8 +10,6 @@ validate_c4(elements, relationships)
 \item{elements}{Named list with person, system/container/component, external_system}
 
 \item{relationships}{List of relationship elements}
-
-\item{diagram}{A C4 diagram object (context, container, or component)}
 }
 \value{
 Invisible TRUE if valid, otherwise prints issues and returns FALSE
