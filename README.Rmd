@@ -19,7 +19,7 @@ library(c4r)
 <!-- badges: start -->
 [![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 [![CRAN status](https://www.r-pkg.org/badges/version/c4r)](https://CRAN.R-project.org/package=c4r)
-[![R-CMD-check](https://github.com/fabiandistler/c4r/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/fabiandistler/c4r/actions/workflows/R-CMD-check.yaml)
+[![R-CMD-check](https://github.com/fabiandistler/c4r/actions/workflows/R-CMD-check.yaml/badge.svg?branch=main)](https://github.com/fabiandistler/c4r/actions/workflows/R-CMD-check.yaml)
 [![Codecov test coverage](https://codecov.io/gh/fabiandistler/c4r/graph/badge.svg)](https://app.codecov.io/gh/fabiandistler/c4r)
 <!-- badges: end -->
 
