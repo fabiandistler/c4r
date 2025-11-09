@@ -11,6 +11,7 @@ Provides functions to create C4 architecture diagrams (Context, Container, Compo
 \seealso{
 Useful links:
 \itemize{
+  \item \url{https://fabiandistler.github.io/c4r/}
   \item \url{https://github.com/fabiandistler/c4r}
   \item Report bugs at \url{https://github.com/fabiandistler/c4r/issues}
 }

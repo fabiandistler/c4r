@@ -30,6 +30,11 @@ c4_from_template <- function(template = c("microservices", "monolith", "serverle
 }
 
 #' Microservices template
+#' @param services Character vector of service names
+#' @param databases Character vector of database names
+#' @param message_queue Message queue type (optional)
+#' @param api_gateway Include API gateway
+#' @param title Diagram title
 #' @keywords internal
 template_microservices <- function(services = c("service1", "service2"),
                                    databases = c("postgres"),
@@ -91,6 +96,10 @@ template_microservices <- function(services = c("service1", "service2"),
 }
 
 #' Monolith template
+#' @param title Diagram title
+#' @param app_name Application name
+#' @param database Database type
+#' @param cache Cache type (optional)
 #' @keywords internal
 template_monolith <- function(title = "Monolithic Architecture",
                               app_name = "Application",
@@ -113,6 +122,10 @@ template_monolith <- function(title = "Monolithic Architecture",
 }
 
 #' Serverless template
+#' @param title Diagram title
+#' @param functions Character vector of function types
+#' @param storage Include storage
+#' @param database Include database
 #' @keywords internal
 template_serverless <- function(title = "Serverless Architecture",
                                 functions = c("api", "processor"),
@@ -160,6 +173,10 @@ template_serverless <- function(title = "Serverless Architecture",
 }
 
 #' Three-tier architecture template
+#' @param title Diagram title
+#' @param web_tech Web technology
+#' @param app_tech Application technology
+#' @param db_tech Database technology
 #' @keywords internal
 template_three_tier <- function(title = "Three-Tier Architecture",
                                 web_tech = "React",
@@ -178,6 +195,10 @@ template_three_tier <- function(title = "Three-Tier Architecture",
 }
 
 #' Data pipeline template
+#' @param title Diagram title
+#' @param sources Character vector of data sources
+#' @param processing Character vector of processing components
+#' @param storage Character vector of storage types
 #' @keywords internal
 template_data_pipeline <- function(title = "Data Pipeline",
                                    sources = c("api", "files"),

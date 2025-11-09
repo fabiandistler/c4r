@@ -189,6 +189,7 @@ c4_preview_theme <- function(theme) {
 #'
 #' This modifies the helper function to accept custom themes
 #'
+#' @param theme Theme name or c4_theme object
 #' @keywords internal
 get_c4_theme_extended <- function(theme) {
   # If theme is already a c4_theme object, return it
