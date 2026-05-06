@@ -1,0 +1,9 @@
+Name: Insert C4 chunk
+Description: Insert a starter c4 knitr chunk at the cursor.
+Binding: insert_c4_chunk
+Interactive: false
+
+Name: Insert C4 template
+Description: Insert an R chunk that renders a named c4r template.
+Binding: insert_c4_template
+Interactive: true

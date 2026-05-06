@@ -23,13 +23,17 @@ Imports:
     stringr,
     tibble
 Suggests:
+    desc,
     DiagrammeRsvg,
     htmlwidgets,
     knitr,
     rmarkdown,
     rsvg,
+    rstudioapi,
     spelling,
     testthat (>= 3.0.0),
+    usethis,
+    withr,
     yaml
 VignetteBuilder: 
     knitr

@@ -16,6 +16,10 @@ articles:
   navbar: ~
   contents:
   - getting-started
+- title: "Integrations"
+  navbar: Integrations
+  contents:
+  - integrations
 
 reference:
 - title: "Main Functions"
@@ -118,4 +122,19 @@ reference:
   - c4_summary
   - c4_find_orphaned
   - c4_find_invalid_rels
+
+- title: "R-package toolchain integration"
+  desc: "Helpers for integrating c4r with devtools/usethis/pkgdown/knitr/RStudio/GitHub Actions"
+  contents:
+  - use_c4r
+  - use_c4r_vignette
+  - use_c4r_pkgdown
+  - use_c4r_readme
+  - use_c4r_action
+  - c4_from_package
+  - pkgdown_diagram
+  - c4_render_dsl
+  - c4_knitr_engine
+  - insert_c4_chunk
+  - insert_c4_template
 
