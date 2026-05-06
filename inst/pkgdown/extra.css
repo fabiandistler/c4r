@@ -1,0 +1,12 @@
+/* c4r diagrams on pkgdown sites ----------------------------------------- */
+.c4r-pkgdown,
+.html-widget.grViz {
+  max-width: 100%;
+  margin: 1rem 0;
+}
+
+.c4r-pkgdown svg,
+.html-widget.grViz svg {
+  width: 100% !important;
+  height: auto !important;
+}

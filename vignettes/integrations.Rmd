@@ -1,0 +1,99 @@
+---
+title: "Integrating c4r with the R package toolchain"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Integrating c4r with the R package toolchain}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(collapse = TRUE, comment = "#>")
+library(c4r)
+```
+
+c4r is designed to slot into the existing R package-development toolchain
+(devtools, usethis, roxygen2, knitr/rmarkdown, pkgdown, RStudio, GitHub
+Actions). This vignette walks through each integration point.
+
+## 1. Scaffolding with `use_c4r()`
+
+In any R package directory, `use_c4r()` adds:
+
+- `vignettes/architecture.Rmd` — a starter article
+- an entry under `articles:` in `_pkgdown.yml`
+- (optionally) a c4r chunk in `README.Rmd`
+- a copy of c4r's pkgdown CSS
+
+```r
+use_c4r(vignette = TRUE, pkgdown = TRUE, readme = FALSE)
+```
+
+This mirrors the `usethis::use_*` family. Run it once; re-running is safe
+because the helpers are idempotent (use `overwrite = TRUE` to replace).
+
+## 2. A diagram from your package's `DESCRIPTION`
+
+`c4_from_package()` reads `DESCRIPTION` and turns Imports/Depends into
+external systems and your package into a central system. At the
+container level, each `R/*.R` file becomes a container.
+
+```{r, eval = FALSE}
+c4_from_package(".") |> build_context()
+c4_from_package(".", level = "container") |> build_container()
+```
+
+## 3. Declarative chunks via the `c4` knitr engine
+
+c4r registers a knitr engine on load, so you can write diagrams in a
+small DSL instead of R code:
+
+````
+```{c4, type="container", title="My App"}
+person: user "End User"
+container: api "API" "REST endpoint" [Service]
+container: db "Database" "App data" [Postgres]
+rel: user -> api "Uses" [HTTPS]
+rel: api -> db "Reads/Writes" [SQL]
+```
+````
+
+Renders as:
+
+```{c4, type="container", title="My App"}
+person: user "End User"
+container: api "API" "REST endpoint" [Service]
+container: db "Database" "App data" [Postgres]
+rel: user -> api "Uses" [HTTPS]
+rel: api -> db "Reads/Writes" [SQL]
+```
+
+The engine works in both R Markdown and Quarto.
+
+## 4. pkgdown polish
+
+Diagrams returned from `c4_*_diagram()` are htmlwidgets. They render
+fine inline, but pkgdown's Bootstrap 5 layout works best when widgets
+have an explicit width. `pkgdown_diagram()` sets sensible defaults:
+
+```{r, eval = FALSE}
+c4_from_template("three_tier") |> pkgdown_diagram(height = "600px")
+```
+
+`use_c4r_pkgdown()` also installs `pkgdown/extra.css` with responsive
+SVG sizing.
+
+## 5. RStudio addins
+
+When c4r is installed, two entries appear in the RStudio addin menu:
+
+- **Insert C4 chunk** — inserts a starter `c4` knitr chunk at the cursor.
+- **Insert C4 template** — prompts for a template name and inserts an R
+  chunk that renders it.
+
+## 6. Continuous rendering with GitHub Actions
+
+`use_c4r_action()` drops a reusable workflow into
+`.github/workflows/c4r-render.yaml`. On every push it renders an SVG
+of `c4_from_package()` and uploads it as a build artifact, so reviewers
+can inspect architecture changes directly from a PR.

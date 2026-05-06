@@ -1,0 +1,5 @@
+## Architecture
+
+```{r architecture, echo=FALSE, message=FALSE}
+c4r::c4_from_package(".") |> c4r::build_context()
+```
