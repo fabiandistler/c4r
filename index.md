@@ -12,6 +12,7 @@ c4r is not yet available on CRAN. You can install the development
 version from GitHub:
 
 ``` r
+
 # install.packages("pak")
 pak::pak("fabiandistler/c4r")
 ```
@@ -19,6 +20,7 @@ pak::pak("fabiandistler/c4r")
 ## Quick Example
 
 ``` r
+
 library(c4r)
 
 # Create a simple system context diagram

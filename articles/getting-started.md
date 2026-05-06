@@ -1,6 +1,7 @@
 # Getting Started with c4r
 
 ``` r
+
 library(c4r)
 ```
 
@@ -50,6 +51,7 @@ the people who use it and the other systems it interacts with.
 Let’s start with a simple e-commerce system:
 
 ``` r
+
 # Create the system context diagram
 context_diagram <- c4_context(
   title = "E-Commerce System - System Context",
@@ -104,6 +106,7 @@ independently.
 ### E-Commerce Container Example
 
 ``` r
+
 container_diagram <- c4_container_diagram(
   title = "E-Commerce System - Container View",
 
@@ -177,6 +180,7 @@ breaking it down into components and their interactions.
 Let’s zoom into the API Gateway container:
 
 ``` r
+
 component_diagram <- c4_component_diagram(
   title = "API Gateway - Component View",
 
@@ -258,6 +262,7 @@ component_diagram
 c4r includes several built-in themes:
 
 ``` r
+
 # Default theme (blue tones)
 default_diagram <- c4_context(
   title = "Default Theme",
@@ -304,6 +309,7 @@ blue_diagram <- c4_context(
 c4r diagrams work seamlessly in R Markdown:
 
 ```` markdown
+
 ``` r
 my_diagram <- c4_context(
   title = "My System Context",
@@ -323,6 +329,7 @@ my_diagram
 ### In Shiny Applications
 
 ``` r
+
 library(shiny)
 library(c4r)
 

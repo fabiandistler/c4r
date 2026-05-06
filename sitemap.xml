@@ -6,6 +6,7 @@
 <url><loc>https://fabiandistler.github.io/c4r/NEW_FEATURES.html</loc></url>
 <url><loc>https://fabiandistler.github.io/c4r/articles/getting-started.html</loc></url>
 <url><loc>https://fabiandistler.github.io/c4r/articles/index.html</loc></url>
+<url><loc>https://fabiandistler.github.io/c4r/articles/integrations.html</loc></url>
 <url><loc>https://fabiandistler.github.io/c4r/authors.html</loc></url>
 <url><loc>https://fabiandistler.github.io/c4r/index.html</loc></url>
 <url><loc>https://fabiandistler.github.io/c4r/news/index.html</loc></url>
@@ -33,9 +34,11 @@
 <url><loc>https://fabiandistler.github.io/c4r/reference/c4_external_systems_from_tibble.html</loc></url>
 <url><loc>https://fabiandistler.github.io/c4r/reference/c4_find_invalid_rels.html</loc></url>
 <url><loc>https://fabiandistler.github.io/c4r/reference/c4_find_orphaned.html</loc></url>
+<url><loc>https://fabiandistler.github.io/c4r/reference/c4_from_package.html</loc></url>
 <url><loc>https://fabiandistler.github.io/c4r/reference/c4_from_template.html</loc></url>
 <url><loc>https://fabiandistler.github.io/c4r/reference/c4_get_dot.html</loc></url>
 <url><loc>https://fabiandistler.github.io/c4r/reference/c4_group.html</loc></url>
+<url><loc>https://fabiandistler.github.io/c4r/reference/c4_knitr_engine.html</loc></url>
 <url><loc>https://fabiandistler.github.io/c4r/reference/c4_list_templates.html</loc></url>
 <url><loc>https://fabiandistler.github.io/c4r/reference/c4_list_themes.html</loc></url>
 <url><loc>https://fabiandistler.github.io/c4r/reference/c4_load_theme.html</loc></url>
@@ -48,6 +51,7 @@
 <url><loc>https://fabiandistler.github.io/c4r/reference/c4_rel_async.html</loc></url>
 <url><loc>https://fabiandistler.github.io/c4r/reference/c4_rel_bidirectional.html</loc></url>
 <url><loc>https://fabiandistler.github.io/c4r/reference/c4_rels_from_tibble.html</loc></url>
+<url><loc>https://fabiandistler.github.io/c4r/reference/c4_render_dsl.html</loc></url>
 <url><loc>https://fabiandistler.github.io/c4r/reference/c4_save_template.html</loc></url>
 <url><loc>https://fabiandistler.github.io/c4r/reference/c4_save_theme.html</loc></url>
 <url><loc>https://fabiandistler.github.io/c4r/reference/c4_summary.html</loc></url>
@@ -85,8 +89,11 @@
 <url><loc>https://fabiandistler.github.io/c4r/reference/get_c4_theme_extended.html</loc></url>
 <url><loc>https://fabiandistler.github.io/c4r/reference/get_node_style.html</loc></url>
 <url><loc>https://fabiandistler.github.io/c4r/reference/index.html</loc></url>
+<url><loc>https://fabiandistler.github.io/c4r/reference/insert_c4_chunk.html</loc></url>
+<url><loc>https://fabiandistler.github.io/c4r/reference/insert_c4_template.html</loc></url>
 <url><loc>https://fabiandistler.github.io/c4r/reference/null-coalescing-operator.html</loc></url>
 <url><loc>https://fabiandistler.github.io/c4r/reference/pipe.html</loc></url>
+<url><loc>https://fabiandistler.github.io/c4r/reference/pkgdown_diagram.html</loc></url>
 <url><loc>https://fabiandistler.github.io/c4r/reference/print.c4_builder.html</loc></url>
 <url><loc>https://fabiandistler.github.io/c4r/reference/print.c4_summary.html</loc></url>
 <url><loc>https://fabiandistler.github.io/c4r/reference/save_code.html</loc></url>
@@ -97,6 +104,11 @@
 <url><loc>https://fabiandistler.github.io/c4r/reference/template_monolith.html</loc></url>
 <url><loc>https://fabiandistler.github.io/c4r/reference/template_serverless.html</loc></url>
 <url><loc>https://fabiandistler.github.io/c4r/reference/template_three_tier.html</loc></url>
+<url><loc>https://fabiandistler.github.io/c4r/reference/use_c4r.html</loc></url>
+<url><loc>https://fabiandistler.github.io/c4r/reference/use_c4r_action.html</loc></url>
+<url><loc>https://fabiandistler.github.io/c4r/reference/use_c4r_pkgdown.html</loc></url>
+<url><loc>https://fabiandistler.github.io/c4r/reference/use_c4r_readme.html</loc></url>
+<url><loc>https://fabiandistler.github.io/c4r/reference/use_c4r_vignette.html</loc></url>
 <url><loc>https://fabiandistler.github.io/c4r/reference/validate_c4.html</loc></url>
 </urlset>
 

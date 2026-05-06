@@ -51,7 +51,7 @@
 <div class="section level2">
 <h2 id="feature-overview">Feature Overview<a class="anchor" aria-label="anchor" href="#feature-overview"></a></h2>
 <div class="section level3">
-<h3 id="id_1-tibbledataframe-input-">1. Tibble/DataFrame Input 📊<a class="anchor" aria-label="anchor" href="#id_1-tibbledataframe-input-"></a></h3>
+<h3 id="id_1-tibbledataframe-input-bar_chart">1. Tibble/DataFrame Input 📊<a class="anchor" aria-label="anchor" href="#id_1-tibbledataframe-input-bar_chart"></a></h3>
 <p>Easily create multiple elements from data frames:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://tibble.tidyverse.org/" class="external-link">tibble</a></span><span class="op">)</span></span>
@@ -72,7 +72,7 @@
 <p><strong>Functions:</strong> - <code><a href="reference/c4_persons_from_tibble.html">c4_persons_from_tibble()</a></code> - <code><a href="reference/c4_systems_from_tibble.html">c4_systems_from_tibble()</a></code> - <code><a href="reference/c4_containers_from_tibble.html">c4_containers_from_tibble()</a></code> - <code><a href="reference/c4_components_from_tibble.html">c4_components_from_tibble()</a></code> - <code><a href="reference/c4_external_systems_from_tibble.html">c4_external_systems_from_tibble()</a></code> - <code><a href="reference/c4_rels_from_tibble.html">c4_rels_from_tibble()</a></code></p>
 </div>
 <div class="section level3">
-<h3 id="id_2-validation--debugging-tools-">2. Validation &amp; Debugging Tools ✅<a class="anchor" aria-label="anchor" href="#id_2-validation--debugging-tools-"></a></h3>
+<h3 id="id_2-validation--debugging-tools-white_check_mark">2. Validation &amp; Debugging Tools ✅<a class="anchor" aria-label="anchor" href="#id_2-validation--debugging-tools-white_check_mark"></a></h3>
 <p>Catch errors before creating diagrams:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Validate elements and relationships</span></span>
@@ -95,7 +95,7 @@
 <span><span class="va">invalid</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/c4_find_invalid_rels.html">c4_find_invalid_rels</a></span><span class="op">(</span><span class="va">elements</span>, <span class="va">relationships</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level3">
-<h3 id="id_3-custom-themes-">3. Custom Themes 🎨<a class="anchor" aria-label="anchor" href="#id_3-custom-themes-"></a></h3>
+<h3 id="id_3-custom-themes-art">3. Custom Themes 🎨<a class="anchor" aria-label="anchor" href="#id_3-custom-themes-art"></a></h3>
 <p>Create and customize color themes:</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Create a custom theme</span></span>
@@ -126,7 +126,7 @@
 <span><span class="fu"><a href="reference/c4_list_themes.html">c4_list_themes</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level3">
-<h3 id="id_4-fluent-builder-interface-️">4. Fluent Builder Interface ⛓️<a class="anchor" aria-label="anchor" href="#id_4-fluent-builder-interface-%EF%B8%8F"></a></h3>
+<h3 id="id_4-fluent-builder-interface-chains">4. Fluent Builder Interface ⛓️<a class="anchor" aria-label="anchor" href="#id_4-fluent-builder-interface-chains"></a></h3>
 <p>Chainable API for building diagrams:</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">diagram</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/c4_builder.html">c4_builder</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"My System"</span>, theme <span class="op">=</span> <span class="st">"blue"</span><span class="op">)</span> <span class="op"><a href="reference/pipe.html">%&gt;%</a></span></span>
@@ -154,7 +154,7 @@
 <p><strong>Builder Functions:</strong> - <code><a href="reference/c4_builder.html">c4_builder()</a></code> - Initialize builder - <code><a href="reference/set_title.html">set_title()</a></code>, <code><a href="reference/set_theme.html">set_theme()</a></code> - Set properties - <code><a href="reference/add_person.html">add_person()</a></code>, <code><a href="reference/add_system.html">add_system()</a></code>, <code><a href="reference/add_container.html">add_container()</a></code>, <code><a href="reference/add_component.html">add_component()</a></code>, <code><a href="reference/add_external_system.html">add_external_system()</a></code> - Add elements - <code><a href="reference/add_relationship.html">add_relationship()</a></code> - Add relationships - <code><a href="reference/add_group.html">add_group()</a></code> - Add visual grouping - <code><a href="reference/build_context.html">build_context()</a></code>, <code><a href="reference/build_container.html">build_container()</a></code>, <code><a href="reference/build_component.html">build_component()</a></code> - Build diagram</p>
 </div>
 <div class="section level3">
-<h3 id="id_5-visual-grouping--boundaries-">5. Visual Grouping &amp; Boundaries 📦<a class="anchor" aria-label="anchor" href="#id_5-visual-grouping--boundaries-"></a></h3>
+<h3 id="id_5-visual-grouping--boundaries-package">5. Visual Grouping &amp; Boundaries 📦<a class="anchor" aria-label="anchor" href="#id_5-visual-grouping--boundaries-package"></a></h3>
 <p>Group related elements with visual boundaries:</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">diagram</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/c4_context.html">c4_context</a></span><span class="op">(</span></span>
@@ -173,7 +173,7 @@
 <p><strong>Styles:</strong> <code>"solid"</code>, <code>"dashed"</code>, <code>"dotted"</code>, <code>"bold"</code></p>
 </div>
 <div class="section level3">
-<h3 id="id_6-advanced-relationship-types-">6. Advanced Relationship Types 🔗<a class="anchor" aria-label="anchor" href="#id_6-advanced-relationship-types-"></a></h3>
+<h3 id="id_6-advanced-relationship-types-link">6. Advanced Relationship Types 🔗<a class="anchor" aria-label="anchor" href="#id_6-advanced-relationship-types-link"></a></h3>
 <p>Different relationship styles and types:</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Synchronous relationship</span></span>
@@ -192,7 +192,7 @@
 <p><strong>Types:</strong> <code>"sync"</code>, <code>"async"</code>, <code>"request-response"</code> <strong>Styles:</strong> <code>"solid"</code>, <code>"dashed"</code>, <code>"dotted"</code> <strong>Directions:</strong> <code>"forward"</code>, <code>"back"</code>, <code>"both"</code>, <code>"none"</code></p>
 </div>
 <div class="section level3">
-<h3 id="id_7-multi-format-export-">7. Multi-Format Export 📤<a class="anchor" aria-label="anchor" href="#id_7-multi-format-export-"></a></h3>
+<h3 id="id_7-multi-format-export-outbox_tray">7. Multi-Format Export 📤<a class="anchor" aria-label="anchor" href="#id_7-multi-format-export-outbox_tray"></a></h3>
 <p>Export diagrams to PNG, SVG, PDF, HTML:</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Export to PNG</span></span>
@@ -218,7 +218,7 @@
 <p><strong>Note:</strong> PNG, SVG, and PDF export require <code>DiagrammeRsvg</code> and <code>rsvg</code> packages.</p>
 </div>
 <div class="section level3">
-<h3 id="id_8-architecture-templates-️">8. Architecture Templates 🏗️<a class="anchor" aria-label="anchor" href="#id_8-architecture-templates-%EF%B8%8F"></a></h3>
+<h3 id="id_8-architecture-templates-building_construction">8. Architecture Templates 🏗️<a class="anchor" aria-label="anchor" href="#id_8-architecture-templates-building_construction"></a></h3>
 <p>Quick start with common patterns:</p>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># List available templates</span></span>
@@ -264,7 +264,7 @@
 <span>                 parameters <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>num_services <span class="op">=</span> <span class="fl">3</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level3">
-<h3 id="id_9-code-generation-">9. Code Generation 💻<a class="anchor" aria-label="anchor" href="#id_9-code-generation-"></a></h3>
+<h3 id="id_9-code-generation-computer">9. Code Generation 💻<a class="anchor" aria-label="anchor" href="#id_9-code-generation-computer"></a></h3>
 <p>Export diagrams as R code or YAML:</p>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Generate R code</span></span>

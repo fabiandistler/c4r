@@ -168,3 +168,45 @@ Functions for validating diagrams and finding issues
   : Find unused elements (elements with no relationships)
 - [`c4_find_invalid_rels()`](https://fabiandistler.github.io/c4r/reference/c4_find_invalid_rels.md)
   : Find relationships referencing non-existent elements
+
+## R-package toolchain integration
+
+Helpers for integrating c4r with
+devtools/usethis/pkgdown/knitr/RStudio/GitHub Actions
+
+- [`use_c4r()`](https://fabiandistler.github.io/c4r/reference/use_c4r.md)
+  : Scaffold c4r usage in an R package
+
+- [`use_c4r_vignette()`](https://fabiandistler.github.io/c4r/reference/use_c4r_vignette.md)
+  : Add a c4r-powered vignette to a package
+
+- [`use_c4r_pkgdown()`](https://fabiandistler.github.io/c4r/reference/use_c4r_pkgdown.md)
+  :
+
+  Add a c4r article entry to `_pkgdown.yml`
+
+- [`use_c4r_readme()`](https://fabiandistler.github.io/c4r/reference/use_c4r_readme.md)
+  :
+
+  Add a c4r chunk to `README.Rmd`
+
+- [`use_c4r_action()`](https://fabiandistler.github.io/c4r/reference/use_c4r_action.md)
+  : Add a GitHub Actions workflow that renders c4r diagrams
+
+- [`c4_from_package()`](https://fabiandistler.github.io/c4r/reference/c4_from_package.md)
+  : Build a C4 diagram from an R package
+
+- [`pkgdown_diagram()`](https://fabiandistler.github.io/c4r/reference/pkgdown_diagram.md)
+  : Render a C4 diagram tuned for pkgdown sites
+
+- [`c4_render_dsl()`](https://fabiandistler.github.io/c4r/reference/c4_render_dsl.md)
+  : Render a c4 DSL body into a diagram
+
+- [`c4_knitr_engine()`](https://fabiandistler.github.io/c4r/reference/c4_knitr_engine.md)
+  : Knitr engine for declarative C4 chunks
+
+- [`insert_c4_chunk()`](https://fabiandistler.github.io/c4r/reference/insert_c4_chunk.md)
+  : Insert a c4 chunk at the cursor (RStudio addin)
+
+- [`insert_c4_template()`](https://fabiandistler.github.io/c4r/reference/insert_c4_template.md)
+  : Insert a c4 template chunk at the cursor (RStudio addin)

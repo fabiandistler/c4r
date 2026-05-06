@@ -18,3 +18,7 @@ Useful links:
 ## Author
 
 **Maintainer**: Fabian Distler <example@email.com>
+
+Authors:
+
+- Fabian Distler <example@email.com>

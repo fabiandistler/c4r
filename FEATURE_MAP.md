@@ -77,6 +77,7 @@ calls
 **Current:**
 
 ``` r
+
 person1 <- c4_person("user1", "User 1", "Description 1")
 person2 <- c4_person("user2", "User 2", "Description 2")
 person3 <- c4_person("user3", "User 3", "Description 3")
@@ -87,6 +88,7 @@ person3 <- c4_person("user3", "User 3", "Description 3")
 #### Option 1: Tibble Input Support
 
 ``` r
+
 library(tibble)
 
 persons <- tribble(
@@ -103,6 +105,7 @@ persons_c4 <- c4_persons_from_tibble(persons)
 #### Option 2: Bulk Constructor Function
 
 ``` r
+
 persons <- c4_persons(
   c("user1", "user2", "user3"),
   labels = c("User 1", "User 2", "User 3"),
@@ -113,6 +116,7 @@ persons <- c4_persons(
 #### Option 3: Named List Shorthand
 
 ``` r
+
 persons <- c4_person_list(
   user1 = list(label = "User 1", description = "Description 1"),
   user2 = list(label = "User 2", description = "Description 2"),
@@ -132,6 +136,7 @@ diagrams
 **Current:**
 
 ``` r
+
 relationships = list(
   c4_rel("user", "app", "Uses", "HTTPS"),
   c4_rel("app", "db", "Reads from", "SQL"),
@@ -144,6 +149,7 @@ relationships = list(
 #### Option 1: Tibble Input for Relationships
 
 ``` r
+
 rels <- tribble(
   ~from,  ~to,     ~label,         ~technology,
   "user", "app",   "Uses",         "HTTPS",
@@ -157,6 +163,7 @@ relationships <- c4_rels_from_tibble(rels)
 #### Option 2: Pipe-Friendly Relationship Builder
 
 ``` r
+
 relationships <- c4_rel_builder() %>%
   add_rel("user", "app", "Uses", "HTTPS") %>%
   add_rel("app", "db", "Reads from", "SQL") %>%
@@ -167,6 +174,7 @@ relationships <- c4_rel_builder() %>%
 #### Option 3: Matrix/Adjacency Input
 
 ``` r
+
 # For simple relationships without labels
 rels_matrix <- matrix(c(
   "user", "app",
@@ -190,6 +198,7 @@ relationships <- c4_rels_from_matrix(rels_matrix, label = "uses")
 #### `validate_c4_diagram()`
 
 ``` r
+
 diagram <- c4_context(
   title = "My System",
   person = list(c4_person("user", "User", "A user")),
@@ -210,6 +219,7 @@ validation <- validate_c4_diagram(diagram)
 #### `check_c4_elements()`
 
 ``` r
+
 # Check for common issues
 check_c4_elements(person, system, external_system, relationships)
 # Output:
@@ -222,6 +232,7 @@ check_c4_elements(person, system, external_system, relationships)
 #### `summary.c4_diagram()`
 
 ``` r
+
 summary(diagram)
 # Output:
 # C4 Context Diagram: "My System"
@@ -243,6 +254,7 @@ objects
 **Proposed Solution:**
 
 ``` r
+
 diagram <- c4_builder() %>%
   set_title("E-Commerce System") %>%
   set_theme("blue") %>%
@@ -270,6 +282,7 @@ management - Clearer intent - Easier to modify incrementally
 **Current:**
 
 ``` r
+
 c4_rel("from", "to", label = 123)
 # Error: `label` must be a character vector
 ```
@@ -277,6 +290,7 @@ c4_rel("from", "to", label = 123)
 **Enhanced:**
 
 ``` r
+
 c4_rel("from", "to", label = 123)
 # Error in c4_rel():
 # ! `label` must be a character vector, not a number
@@ -301,6 +315,7 @@ boundaries
 **Proposed API:**
 
 ``` r
+
 c4_context(
   title = "Microservices Architecture",
   person = list(...),
@@ -338,6 +353,7 @@ c4_context(
 **Proposed Enhancements:**
 
 ``` r
+
 c4_rel("user", "app", "Uses", "HTTPS",
        type = "sync",        # sync, async, request-response
        style = "solid",      # solid, dashed, dotted
@@ -351,6 +367,7 @@ for optional flows - **Order/Sequence**: Numbered relationships
 **Example:**
 
 ``` r
+
 relationships = list(
   c4_rel("user", "app", "1. Request", type = "sync"),
   c4_rel("app", "queue", "2. Publish", type = "async", style = "dashed"),
@@ -370,6 +387,7 @@ relationships = list(
 **Proposed API:**
 
 ``` r
+
 # Export diagram to various formats
 export_c4(diagram,
           file = "architecture",
@@ -403,6 +421,7 @@ for PDF - Keep existing HTML export
 **Proposed API:**
 
 ``` r
+
 # Create custom theme
 my_theme <- c4_theme(
   name = "corporate",
@@ -439,6 +458,7 @@ c4_load_theme("corporate")
 **Proposed API:**
 
 ``` r
+
 # Create interactive version
 c4_interactive(diagram,
                features = c("zoom", "pan", "tooltip", "filter"))
@@ -474,6 +494,7 @@ Highlight paths between elements
 **Proposed API:**
 
 ``` r
+
 # Compare two versions
 old_diagram <- readRDS("architecture_v1.rds")
 new_diagram <- readRDS("architecture_v2.rds")
@@ -511,6 +532,7 @@ c4_timeline(
 **Proposed API:**
 
 ``` r
+
 # Use common architecture patterns
 diagram <- c4_from_template("microservices",
   services = c("api", "auth", "users", "orders"),
@@ -544,6 +566,7 @@ c4_save_template(diagram,
 **Proposed API:**
 
 ``` r
+
 # Generate R code from diagram object
 code <- diagram_to_code(diagram)
 cat(code)
@@ -576,6 +599,7 @@ diagram_to_yaml(diagram, file = "diagram.yaml")
 **Proposed API:**
 
 ``` r
+
 # Import from Structurizr DSL
 diagram <- c4_from_structurizr("workspace.dsl")
 
@@ -603,6 +627,7 @@ diagram <- c4_from_plantuml("diagram.puml")
 **Proposed API:**
 
 ``` r
+
 # Specify layout algorithm
 c4_context(...,
            layout = "hierarchical",  # hierarchical, force, circular, tree
@@ -801,7 +826,9 @@ snippet c4rel
     c4_rel("${1:from}", "${2:to}", "${3:label}", "${4:technology}")
 ```
 
-**Installation:** Include in package with `usethis::use_rstudio()` setup
+**Installation:** Include in package with
+[`usethis::use_rstudio()`](https://usethis.r-lib.org/reference/use_rstudio.html)
+setup
 
 **Impact:** Medium - Speeds up coding
 
@@ -814,6 +841,7 @@ snippet c4rel
 **Proposed Enhancement:**
 
 ``` r
+
 # Enable piping for incremental diagram building
 diagram <- list() %>%
   c4_add_person("user", "User", "A user") %>%
@@ -833,6 +861,7 @@ diagram <- list() %>%
 **Proposed Functions for Package Users:**
 
 ``` r
+
 # Test that diagram is valid
 expect_valid_c4_diagram(diagram)
 
@@ -857,6 +886,7 @@ expect_c4_equivalent(diagram1, diagram2, ignore = "theme")
 **Proposed Features:**
 
 ``` r
+
 # Render diagrams in GitHub Actions
 c4_render_for_github(diagram,
                      output_dir = "docs/diagrams",
@@ -879,6 +909,7 @@ diagram <- c4_from_github_repo("owner/repo",
 **Proposed Enhancement:**
 
 ``` r
+
 # In Quarto document:
 # ```{c4}
 # #| label: my-diagram
@@ -901,6 +932,7 @@ diagram <- c4_from_github_repo("owner/repo",
 **Proposed Package Addition:**
 
 ``` r
+
 # Start local API server
 c4_serve_api(port = 8080)
 
@@ -921,6 +953,7 @@ c4_serve_api(port = 8080)
 **Proposed Feature:**
 
 ``` r
+
 # Generate container diagram from database
 diagram <- c4_from_database(
   con = DBI::dbConnect(...),
@@ -937,32 +970,32 @@ diagram <- c4_from_database(
 
 ## Prioritization Matrix
 
-| Feature                               | Priority | Impact | Effort | Value/Effort | Phase  |
-|---------------------------------------|----------|--------|--------|--------------|--------|
-| **UX-1** Simplified Element Creation  | P0       | High   | Medium | High         | Short  |
-| **UX-2** Relationship Builder         | P0       | High   | Medium | High         | Short  |
-| **UX-3** Validation Tools             | P0       | High   | Low    | Very High    | Short  |
-| **FEAT-3** Export Formats             | P0       | High   | Medium | High         | Short  |
-| **UX-4** Diagram Builder (Fluent API) | P1       | High   | High   | Medium       | Medium |
-| **FEAT-1** Visual Grouping            | P1       | High   | Medium | High         | Medium |
-| **DOC-1** Example Gallery             | P1       | Medium | Low    | High         | Short  |
-| **DEV-1** RStudio Addin               | P1       | High   | High   | Medium       | Long   |
-| **FEAT-2** Advanced Relationships     | P2       | Medium | Medium | Medium       | Medium |
-| **FEAT-4** Theme Customization        | P2       | Medium | Low    | High         | Short  |
-| **UX-5** Better Error Messages        | P2       | Medium | Low    | High         | Short  |
-| **DOC-2** Best Practices Guide        | P2       | Medium | Low    | High         | Medium |
-| **INT-2** Quarto Integration          | P2       | Medium | Low    | High         | Medium |
-| **FEAT-7** Templates                  | P2       | Medium | Medium | Medium       | Medium |
-| **FEAT-5** Interactive Diagrams       | P3       | Medium | High   | Low          | Long   |
-| **FEAT-6** Diagram Comparison         | P3       | Low    | Medium | Low          | Long   |
-| **FEAT-9** Import from External       | P3       | Medium | High   | Low          | Long   |
-| **DEV-3** Pipe Support                | P3       | Low    | Low    | Medium       | Short  |
-| **FEAT-8** Code Generation            | P3       | Low    | Low    | Medium       | Medium |
-| **DOC-3** Video Tutorials             | P3       | Medium | Medium | Medium       | Long   |
-| **INT-1** GitHub Integration          | P3       | Medium | Medium | Medium       | Long   |
-| **FEAT-10** Auto-Layout               | P4       | Low    | Medium | Low          | Long   |
-| **INT-3** REST API                    | P4       | Low    | High   | Very Low     | Long   |
-| **INT-4** DB Schema Import            | P4       | Low    | Medium | Very Low     | Long   |
+| Feature | Priority | Impact | Effort | Value/Effort | Phase |
+|----|----|----|----|----|----|
+| **UX-1** Simplified Element Creation | P0 | High | Medium | High | Short |
+| **UX-2** Relationship Builder | P0 | High | Medium | High | Short |
+| **UX-3** Validation Tools | P0 | High | Low | Very High | Short |
+| **FEAT-3** Export Formats | P0 | High | Medium | High | Short |
+| **UX-4** Diagram Builder (Fluent API) | P1 | High | High | Medium | Medium |
+| **FEAT-1** Visual Grouping | P1 | High | Medium | High | Medium |
+| **DOC-1** Example Gallery | P1 | Medium | Low | High | Short |
+| **DEV-1** RStudio Addin | P1 | High | High | Medium | Long |
+| **FEAT-2** Advanced Relationships | P2 | Medium | Medium | Medium | Medium |
+| **FEAT-4** Theme Customization | P2 | Medium | Low | High | Short |
+| **UX-5** Better Error Messages | P2 | Medium | Low | High | Short |
+| **DOC-2** Best Practices Guide | P2 | Medium | Low | High | Medium |
+| **INT-2** Quarto Integration | P2 | Medium | Low | High | Medium |
+| **FEAT-7** Templates | P2 | Medium | Medium | Medium | Medium |
+| **FEAT-5** Interactive Diagrams | P3 | Medium | High | Low | Long |
+| **FEAT-6** Diagram Comparison | P3 | Low | Medium | Low | Long |
+| **FEAT-9** Import from External | P3 | Medium | High | Low | Long |
+| **DEV-3** Pipe Support | P3 | Low | Low | Medium | Short |
+| **FEAT-8** Code Generation | P3 | Low | Low | Medium | Medium |
+| **DOC-3** Video Tutorials | P3 | Medium | Medium | Medium | Long |
+| **INT-1** GitHub Integration | P3 | Medium | Medium | Medium | Long |
+| **FEAT-10** Auto-Layout | P4 | Low | Medium | Low | Long |
+| **INT-3** REST API | P4 | Low | High | Very Low | Long |
+| **INT-4** DB Schema Import | P4 | Low | Medium | Very Low | Long |
 
 ### Priority Levels
 
@@ -1156,21 +1189,21 @@ demand:
 
 ### Technical Risks
 
-| Risk                            | Probability | Impact | Mitigation                                             |
-|---------------------------------|-------------|--------|--------------------------------------------------------|
-| DiagrammeR dependency issues    | Medium      | High   | Add alternative rendering backend                      |
-| Graphviz layout limitations     | High        | Medium | Document constraints, add manual positioning           |
-| Performance with large diagrams | Medium      | Medium | Implement lazy loading, pagination                     |
-| Breaking API changes            | Low         | High   | Maintain backwards compatibility, deprecation warnings |
+| Risk | Probability | Impact | Mitigation |
+|----|----|----|----|
+| DiagrammeR dependency issues | Medium | High | Add alternative rendering backend |
+| Graphviz layout limitations | High | Medium | Document constraints, add manual positioning |
+| Performance with large diagrams | Medium | Medium | Implement lazy loading, pagination |
+| Breaking API changes | Low | High | Maintain backwards compatibility, deprecation warnings |
 
 ### Community Risks
 
-| Risk                                   | Probability | Impact | Mitigation                                           |
-|----------------------------------------|-------------|--------|------------------------------------------------------|
-| Low adoption rate                      | Medium      | Medium | Strong marketing, conference talks, blog posts       |
-| Feature requests overwhelm development | Medium      | Low    | Clear roadmap, prioritization framework              |
-| Competition from other tools           | High        | Medium | Focus on R integration advantage                     |
-| Maintenance burden                     | Low         | High   | Build maintainer community, clear contribution guide |
+| Risk | Probability | Impact | Mitigation |
+|----|----|----|----|
+| Low adoption rate | Medium | Medium | Strong marketing, conference talks, blog posts |
+| Feature requests overwhelm development | Medium | Low | Clear roadmap, prioritization framework |
+| Competition from other tools | High | Medium | Focus on R integration advantage |
+| Maintenance burden | Low | High | Build maintainer community, clear contribution guide |
 
 ------------------------------------------------------------------------
 

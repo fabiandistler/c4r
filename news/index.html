@@ -34,6 +34,17 @@
     </div>
 
     <div class="section level2">
+<h2 class="pkg-version" data-toc-text="development version" id="c4r-development-version">c4r (development version)<a class="anchor" aria-label="anchor" href="#c4r-development-version"></a></h2>
+<div class="section level3">
+<h3 id="r-package-toolchain-integration-development-version">R-package toolchain integration<a class="anchor" aria-label="anchor" href="#r-package-toolchain-integration-development-version"></a></h3>
+<ul><li>New <code><a href="../reference/use_c4r.html">use_c4r()</a></code> family of <code>usethis</code>-style scaffolding helpers: <code><a href="../reference/use_c4r.html">use_c4r()</a></code>, <code><a href="../reference/use_c4r_vignette.html">use_c4r_vignette()</a></code>, <code><a href="../reference/use_c4r_pkgdown.html">use_c4r_pkgdown()</a></code>, <code><a href="../reference/use_c4r_readme.html">use_c4r_readme()</a></code>, and <code><a href="../reference/use_c4r_action.html">use_c4r_action()</a></code>. They add an architecture vignette, a pkgdown article entry, an optional README chunk, and a GitHub Actions workflow respectively.</li>
+<li>New <code><a href="../reference/c4_from_package.html">c4_from_package()</a></code> builds a <code>c4_builder</code> from an R package’s <code>DESCRIPTION</code> (and optionally <code>R/</code>), turning Imports/Depends into external systems and source files into containers.</li>
+<li>New <code>c4</code> knitr engine: write declarative <code>c4</code> chunks in R Markdown or Quarto. Engine is registered automatically on package load. See <code><a href="../reference/c4_knitr_engine.html">c4_knitr_engine()</a></code> and <code><a href="../reference/c4_render_dsl.html">c4_render_dsl()</a></code>.</li>
+<li>New <code><a href="../reference/pkgdown_diagram.html">pkgdown_diagram()</a></code> sets sensible width/height defaults for htmlwidget-based diagrams on Bootstrap 5 pkgdown sites; bundled <code>inst/pkgdown/extra.css</code> ensures responsive SVG sizing.</li>
+<li>New RStudio addins “Insert C4 chunk” and “Insert C4 template” (<code><a href="../reference/insert_c4_chunk.html">insert_c4_chunk()</a></code>, <code><a href="../reference/insert_c4_template.html">insert_c4_template()</a></code>).</li>
+</ul></div>
+</div>
+    <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.1.0" id="c4r-010">c4r 0.1.0<a class="anchor" aria-label="anchor" href="#c4r-010"></a></h2>
 <div class="section level3">
 <h3 id="new-features-0-1-0">New features<a class="anchor" aria-label="anchor" href="#new-features-0-1-0"></a></h3>

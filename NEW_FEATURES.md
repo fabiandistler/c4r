@@ -6,6 +6,7 @@ user-friendly.
 ## Quick Start with New Features
 
 ``` r
+
 library(c4r)
 
 # Use the fluent builder interface
@@ -23,6 +24,7 @@ diagram <- c4_builder("My System") %>%
 Easily create multiple elements from data frames:
 
 ``` r
+
 library(tibble)
 
 # Create persons from tibble
@@ -53,6 +55,7 @@ rels <- tribble(
 Catch errors before creating diagrams:
 
 ``` r
+
 # Validate elements and relationships
 check_c4_elements(
   person = my_persons,
@@ -78,6 +81,7 @@ invalid <- c4_find_invalid_rels(elements, relationships)
 Create and customize color themes:
 
 ``` r
+
 # Create a custom theme
 my_theme <- c4_theme(
   name = "corporate",
@@ -111,6 +115,7 @@ c4_list_themes()
 Chainable API for building diagrams:
 
 ``` r
+
 diagram <- c4_builder(title = "My System", theme = "blue") %>%
   # Add elements
   add_person("user", "User", "Application user") %>%
@@ -161,6 +166,7 @@ Build diagram
 Group related elements with visual boundaries:
 
 ``` r
+
 diagram <- c4_context(
   ...,
   groups = list(
@@ -190,6 +196,7 @@ System boundary
 Different relationship styles and types:
 
 ``` r
+
 # Synchronous relationship
 rel1 <- c4_rel_advanced("api", "db", "Queries", "SQL",
                         type = "sync", style = "solid")
@@ -214,6 +221,7 @@ rel4 <- c4_rel_async("worker", "queue", "Subscribes", "RabbitMQ")
 Export diagrams to PNG, SVG, PDF, HTML:
 
 ``` r
+
 # Export to PNG
 export_c4(diagram, "architecture", format = "png", width = 1200, height = 800, dpi = 300)
 
@@ -244,6 +252,7 @@ packages.
 Quick start with common patterns:
 
 ``` r
+
 # List available templates
 c4_list_templates()
 
@@ -292,6 +301,7 @@ c4_save_template(my_diagram, "my_pattern", "~/templates/pattern.rds",
 Export diagrams as R code or YAML:
 
 ``` r
+
 # Generate R code
 code <- diagram_to_code(
   elements = list(person = my_persons, system = my_systems),
@@ -323,6 +333,7 @@ imported <- diagram_from_yaml("diagram.yaml")
 ### Old Way
 
 ``` r
+
 # Old: Verbose element creation
 person1 <- c4_person("user1", "User 1", "First user")
 person2 <- c4_person("user2", "User 2", "Second user")
@@ -343,6 +354,7 @@ diagram <- c4_context(
 ### New Way
 
 ``` r
+
 # New: Tibble input + Builder
 diagram <- c4_builder("My System") %>%
   # Add multiple persons at once from tibble
@@ -385,18 +397,21 @@ All new features work with existing dependencies.
 - **PNG/SVG/PDF Export**: Requires `DiagrammeRsvg` and `rsvg`
 
   ``` r
+
   install.packages(c("DiagrammeRsvg", "rsvg"))
   ```
 
 - **YAML Import/Export**: Requires `yaml`
 
   ``` r
+
   install.packages("yaml")
   ```
 
 - **HTML Export**: Requires `htmlwidgets`
 
   ``` r
+
   install.packages("htmlwidgets")
   ```
 
