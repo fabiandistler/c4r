@@ -18,3 +18,10 @@ Invisibly returns the path to \code{README.Rmd}.
 Appends a code chunk to the README that renders an architecture diagram.
 If \code{README.Rmd} does not exist, it is created with a minimal header.
 }
+\details{
+The chunk exports the diagram to \code{man/figures/README-architecture.svg}
+via \code{\link[=export_c4]{export_c4()}} and embeds it with \code{\link[knitr:include_graphics]{knitr::include_graphics()}} so it
+renders on GitHub. This requires the suggested package
+\pkg{DiagrammeRsvg}; without it the chunk falls back to the htmlwidget,
+which is why the generated YAML sets \code{always_allow_html: true}.
+}

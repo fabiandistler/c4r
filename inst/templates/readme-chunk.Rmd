@@ -1,5 +1,12 @@
 ## Architecture
 
-```{r architecture, echo=FALSE, message=FALSE}
-c4r::c4_from_package(".") |> c4r::build_context()
+```{r architecture, echo=FALSE, message=FALSE, fig.alt="C4 context diagram of this package."}
+.c4r_diagram <- c4r::c4_from_package(".") |> c4r::build_context()
+if (requireNamespace("DiagrammeRsvg", quietly = TRUE)) {
+  dir.create("man/figures", recursive = TRUE, showWarnings = FALSE)
+  c4r::export_c4(.c4r_diagram, "man/figures/README-architecture", format = "svg")
+  knitr::include_graphics("man/figures/README-architecture.svg")
+} else {
+  .c4r_diagram
+}
 ```
