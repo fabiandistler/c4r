@@ -137,6 +137,12 @@ use_c4r_pkgdown <- function(path = ".") {
 #' Appends a code chunk to the README that renders an architecture diagram.
 #' If `README.Rmd` does not exist, it is created with a minimal header.
 #'
+#' The chunk exports the diagram to `man/figures/README-architecture.svg`
+#' via [export_c4()] and embeds it with [knitr::include_graphics()] so it
+#' renders on GitHub. This requires the suggested package
+#' \pkg{DiagrammeRsvg}; without it the chunk falls back to the htmlwidget,
+#' which is why the generated YAML sets `always_allow_html: true`.
+#'
 #' @inheritParams use_c4r
 #' @return Invisibly returns the path to `README.Rmd`.
 #' @export
@@ -154,6 +160,7 @@ use_c4r_readme <- function(path = ".", overwrite = FALSE) {
     writeLines(c(
       "---",
       "output: github_document",
+      "always_allow_html: true",
       "---",
       "",
       "<!-- README.Rmd generates README.md. Please edit README.Rmd. -->",
