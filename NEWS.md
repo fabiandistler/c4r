@@ -2,6 +2,12 @@
 
 ## Bug fixes
 
+* `use_c4r_readme()` now generates a `README.Rmd` that knits cleanly under
+  `output: github_document`. The chunk exports the diagram to
+  `man/figures/README-architecture.svg` via `export_c4()` and embeds it
+  with `knitr::include_graphics()` so the diagram renders on GitHub, and
+  the generated YAML sets `always_allow_html: true` as a safety net for
+  the htmlwidget fallback when `DiagrammeRsvg` is not installed (#11).
 * `use_c4r_vignette()` now generates a vignette that builds cleanly under
   `devtools::build_vignettes()`. The bundled template previously called
   `c4_from_package(".")`, which failed because knitr knits vignettes with
