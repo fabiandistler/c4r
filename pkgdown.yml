@@ -4,7 +4,7 @@ pkgdown_sha: ~
 articles:
   getting-started: getting-started.html
   integrations: integrations.html
-last_built: 2026-05-06T11:52Z
+last_built: 2026-05-07T14:35Z
 urls:
   reference: https://fabiandistler.github.io/c4r/reference
   article: https://fabiandistler.github.io/c4r/articles

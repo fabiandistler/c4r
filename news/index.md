@@ -2,6 +2,15 @@
 
 ## c4r (development version)
 
+### Bug fixes
+
+- [`use_c4r_vignette()`](https://fabiandistler.github.io/c4r/reference/use_c4r_vignette.md)
+  now generates a vignette that builds cleanly under
+  `devtools::build_vignettes()`. The bundled template previously called
+  `c4_from_package(".")`, which failed because knitr knits vignettes
+  with the working directory set to `vignettes/`
+  ([\#12](https://github.com/fabiandistler/c4r/issues/12)).
+
 ### R-package toolchain integration
 
 - New
