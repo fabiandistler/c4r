@@ -4,6 +4,17 @@
 
 ### Bug fixes
 
+- [`use_c4r_readme()`](https://fabiandistler.github.io/c4r/reference/use_c4r_readme.md)
+  now generates a `README.Rmd` that knits cleanly under
+  `output: github_document`. The chunk exports the diagram to
+  `man/figures/README-architecture.svg` via
+  [`export_c4()`](https://fabiandistler.github.io/c4r/reference/export_c4.md)
+  and embeds it with
+  [`knitr::include_graphics()`](https://rdrr.io/pkg/knitr/man/include_graphics.html)
+  so the diagram renders on GitHub, and the generated YAML sets
+  `always_allow_html: true` as a safety net for the htmlwidget fallback
+  when `DiagrammeRsvg` is not installed
+  ([\#11](https://github.com/fabiandistler/c4r/issues/11)).
 - [`use_c4r_vignette()`](https://fabiandistler.github.io/c4r/reference/use_c4r_vignette.md)
   now generates a vignette that builds cleanly under
   `devtools::build_vignettes()`. The bundled template previously called

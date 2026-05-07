@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">c4r</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.0.9000</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.0.9001</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -38,6 +38,8 @@
 <div class="section level3">
 <h3 id="bug-fixes-development-version">Bug fixes<a class="anchor" aria-label="anchor" href="#bug-fixes-development-version"></a></h3>
 <ul><li>
+<code><a href="../reference/use_c4r_readme.html">use_c4r_readme()</a></code> now generates a <code>README.Rmd</code> that knits cleanly under <code>output: github_document</code>. The chunk exports the diagram to <code>man/figures/README-architecture.svg</code> via <code><a href="../reference/export_c4.html">export_c4()</a></code> and embeds it with <code><a href="https://rdrr.io/pkg/knitr/man/include_graphics.html" class="external-link">knitr::include_graphics()</a></code> so the diagram renders on GitHub, and the generated YAML sets <code>always_allow_html: true</code> as a safety net for the htmlwidget fallback when <code>DiagrammeRsvg</code> is not installed (<a href="https://github.com/fabiandistler/c4r/issues/11" class="external-link">#11</a>).</li>
+<li>
 <code><a href="../reference/use_c4r_vignette.html">use_c4r_vignette()</a></code> now generates a vignette that builds cleanly under <code>devtools::build_vignettes()</code>. The bundled template previously called <code>c4_from_package(".")</code>, which failed because knitr knits vignettes with the working directory set to <code>vignettes/</code> (<a href="https://github.com/fabiandistler/c4r/issues/12" class="external-link">#12</a>).</li>
 </ul></div>
 <div class="section level3">
