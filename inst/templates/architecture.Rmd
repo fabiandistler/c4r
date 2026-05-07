@@ -17,7 +17,7 @@ This page renders a C4 diagram of the package architecture using
 ## From package metadata
 
 ```{r}
-c4r::c4_from_package(".") |> c4r::build_context()
+c4r::c4_from_package("..") |> c4r::build_context()
 ```
 
 ## From a starter template

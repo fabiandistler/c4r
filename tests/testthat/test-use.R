@@ -32,6 +32,10 @@ test_that("use_c4r_vignette writes a vignette", {
     expect_true(file.exists(out))
     contents <- readLines(out)
     expect_true(any(grepl("monolith", contents, fixed = TRUE)))
+    # Vignettes knit with wd = vignettes/, so the template must reach the
+    # package root via ".." rather than ".". Regression guard for #12.
+    expect_true(any(grepl('c4_from_package("..")', contents, fixed = TRUE)))
+    expect_false(any(grepl('c4_from_package(".")', contents, fixed = TRUE)))
   })
 })
 
