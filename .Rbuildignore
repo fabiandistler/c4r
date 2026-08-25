@@ -10,3 +10,5 @@
 ^pkgdown$
 ^codecov\.yml$
 ^\.claude$
+^ROOMBA\.md$
+^roomba$
