@@ -1,5 +1,6 @@
 ---
 output: github_document
+always_allow_html: true
 ---
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
@@ -52,3 +53,16 @@ c4_context(
 
 - **[Getting Started Guide](https://fabiandistler.github.io/c4r/articles/getting-started.html)** - Complete tutorial with examples
 - **[Function Reference](https://fabiandistler.github.io/c4r/reference/)** - API documentation
+
+## Architecture
+
+```{r architecture, echo=FALSE, message=FALSE, fig.alt="C4 context diagram of this package."}
+.c4r_diagram <- c4r::c4_from_package(".") |> c4r::build_context()
+if (requireNamespace("DiagrammeRsvg", quietly = TRUE)) {
+  dir.create("man/figures", recursive = TRUE, showWarnings = FALSE)
+  c4r::export_c4(.c4r_diagram, "man/figures/README-architecture", format = "svg")
+  knitr::include_graphics("man/figures/README-architecture.svg")
+} else {
+  .c4r_diagram
+}
+```

@@ -1,4 +1,4 @@
-# c4r (development version)
+# c4r 0.2.0
 
 ## Bug fixes
 
@@ -31,6 +31,14 @@
   `inst/pkgdown/extra.css` ensures responsive SVG sizing.
 * New RStudio addins "Insert C4 chunk" and "Insert C4 template"
   (`insert_c4_chunk()`, `insert_c4_template()`).
+
+## Documentation
+
+* New "Architecture" vignette showing c4r's own diagrams, generated from
+  `DESCRIPTION` via `c4_from_package()`, from a template, and from a
+  declarative `c4` chunk.
+* The README now renders a C4 context diagram of the package, exported to
+  `man/figures/README-architecture.svg` via `export_c4()`.
 
 # c4r 0.1.0
 
