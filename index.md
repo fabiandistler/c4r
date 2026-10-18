@@ -40,3 +40,8 @@ c4_context(
 - **[Function
   Reference](https://fabiandistler.github.io/c4r/reference/)** - API
   documentation
+
+## Architecture
+
+![C4 context diagram of this
+package.](reference/figures/README-architecture.svg)

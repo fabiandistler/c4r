@@ -9,3 +9,7 @@
 
 - [Integrating c4r with the R package
   toolchain](https://fabiandistler.github.io/c4r/articles/integrations.md):
+
+### Architecture
+
+- [Architecture](https://fabiandistler.github.io/c4r/articles/architecture.md):

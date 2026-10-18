@@ -1,6 +1,6 @@
 # Changelog
 
-## c4r (development version)
+## c4r 0.2.0
 
 ### Bug fixes
 
@@ -53,6 +53,16 @@
 - New RStudio addins “Insert C4 chunk” and “Insert C4 template”
   ([`insert_c4_chunk()`](https://fabiandistler.github.io/c4r/reference/insert_c4_chunk.md),
   [`insert_c4_template()`](https://fabiandistler.github.io/c4r/reference/insert_c4_template.md)).
+
+### Documentation
+
+- New “Architecture” vignette showing c4r’s own diagrams, generated from
+  `DESCRIPTION` via
+  [`c4_from_package()`](https://fabiandistler.github.io/c4r/reference/c4_from_package.md),
+  from a template, and from a declarative `c4` chunk.
+- The README now renders a C4 context diagram of the package, exported
+  to `man/figures/README-architecture.svg` via
+  [`export_c4()`](https://fabiandistler.github.io/c4r/reference/export_c4.md).
 
 ## c4r 0.1.0
 
