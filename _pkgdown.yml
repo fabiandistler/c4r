@@ -20,6 +20,9 @@ articles:
   navbar: Integrations
   contents:
   - integrations
+- title: "Architecture"
+  contents:
+  - architecture
 
 reference:
 - title: "Main Functions"
